@@ -1,0 +1,27 @@
+
+<div>
+
+	{% for producto in productos %}
+		<ul> 
+			
+			<li> {{producto.nombre}} </li>
+			<li> {{producto.marca}} </li>
+			<li> 
+				<img src="{{MEDIA_ROOT}}{{producto.img}} ">
+				</li>
+			<li> {{producto.precio}} </li>
+
+		</ul>
+  
+	{% endfor %}
+
+
+
+
+</div>
+	
+			
+
+	
+
+

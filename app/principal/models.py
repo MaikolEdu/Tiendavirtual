@@ -1,4 +1,5 @@
 from django.db import models
+from django.template import defaultfilters
 
 class Producto(models.Model):
         nombre = models.CharField(max_length=200)

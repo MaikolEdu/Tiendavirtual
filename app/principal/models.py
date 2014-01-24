@@ -1,6 +1,17 @@
 from django.db import models
 from django.template import defaultfilters
 
+
+class Categoria(models.Model):
+        nombre = models.CharField(max_length=200)
+        
+        def save(self, *args, **kwargs):
+                self.slug = defaultfilters.slugify(self.nombre)
+                super(Producto, self).save(*args, **kwargs)
+
+        def __unicode__(self):
+                return unicode(self.nombre)
+
 class Producto(models.Model):
         nombre = models.CharField(max_length=200)
         descripcion= models.CharField(null=True,blank=True,max_length=100)
@@ -16,3 +27,4 @@ class Producto(models.Model):
 
         def __unicode__(self):
                 return unicode(self.nombre)
+

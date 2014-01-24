@@ -9,3 +9,6 @@ class AdminEntries(admin.ModelAdmin):
 
 
 admin.site.register(Producto, AdminEntries)
+admin.site.register(SubCategoria, AdminEntries)
+admin.site.register(Valor)
+admin.site.register(Caracteristica)

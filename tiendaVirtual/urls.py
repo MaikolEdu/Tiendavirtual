@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^productos/$','app.principal.views.productos'),
+    url(r'^$','app.principal.views.productos'),
     # url(r'^TiendaVirtual/', include('TiendaVirtual.foo.urls')),
     url(r'^media/(?P<path>.*)$','django.views.static.serve',
 		{'document_root':settings.MEDIA_ROOT,}

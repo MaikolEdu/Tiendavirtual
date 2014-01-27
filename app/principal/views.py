@@ -5,4 +5,5 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 def productos(request):
 	productos= Producto.objects.all()
-	return render_to_response('lista_productos.html',{'productos':productos}, context_instance=RequestContext(request))
+	return render_to_response('index.html',{'productos':productos}, context_instance=RequestContext(request))
+

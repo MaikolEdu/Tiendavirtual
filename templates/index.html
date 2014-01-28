@@ -49,9 +49,9 @@
             <div class="container">
                 <ul class="app_ul">
                     <a href="#"><li>La Empresa</li></a>
-                    <a href="utiles_escolares.html"><li>Utiles Escolares</li></a>
-                    <a href="utiles_escolares.html"><li>Utiles de Oficina</li></a>
-                    <a href="utiles_escolares.html"><li>Regalos</li></a>
+                    <a href="/utiles_escolares"><li>Utiles Escolares</li></a>
+                    <a href="/utiles_escolares"><li>Utiles de Oficina</li></a>
+                    <a href="/utiles_escolares"><li>Regalos</li></a>
                     <a href="#"><li>Contáctenos</li></a>
                 </ul>
             </div>
@@ -67,13 +67,13 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img src="img/slider1.png" class="adaptar">
+                            <img src="{{STATIC_URL}}img/slider1.png" class="adaptar">
                         </div>
                         <div class="item">
-                            <img src="img/slider2.png" class="adaptar">
+                            <img src="{{STATIC_URL}}img/slider2.png" class="adaptar">
                         </div>
                         <div class="item">
-                            <img src="img/slider3.jpg" class="adaptar">
+                            <img src="{{STATIC_URL}}img/slider3.jpg" class="adaptar">
                         </div>
                     </div>
                     <a href="#miSlide" class="left carousel-control" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
@@ -84,11 +84,10 @@
                 <div class="row">
                     <div class="col-xs-9">
                         <div class="row">
-                            {% for i in productos%}
+                            {%for elemento in productos %}
 
-                            <div class="col-xs-3"><img src="{{MEDIA_URL}}{{i.img}}"class="thumbnail"></div>
-                            
-                            {%endfor%}
+                            <div class="col-xs-3"><img src="{{MEDIA_URL}}{{elemento.img}}"class="thumbnail"></div>
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="col-xs-3">
@@ -169,8 +168,8 @@
         </footer>
 
         <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
-        <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
+        <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+        <script src="{{STATIC_URL}}js/vendor/bootstrap.min.js"></script>
+        <script src="{{STATIC_URL}}js/main.js"></script>
     </body>
 </html>

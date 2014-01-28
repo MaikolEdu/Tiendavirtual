@@ -7,4 +7,3 @@ def productos(request):
 	print request.session.session_key
 	productos= Producto.objects.all()
 	return render_to_response('index.html',{'productos':productos}, context_instance=RequestContext(request))
-

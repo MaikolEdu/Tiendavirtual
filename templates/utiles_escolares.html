@@ -11,11 +11,19 @@
         <meta name="viewport" content="width=device-width">
 
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+<<<<<<< HEAD
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/utiles.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+=======
+        <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.min.css">
+        <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.css">
+        <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
+        <link rel="stylesheet" href="{{STATIC_URL}}css/utiles.css">
+        <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.2.min.js"></script>
+>>>>>>> da6ed5a62a8f84af6ef818aa48c7d773640e7be8
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -48,7 +56,7 @@
         <nav class="app_nav">
             <div class="container">
                 <ul class="app_ul">
-                    <a href="index.html"><li>La Empresa</li></a>
+                    <a href="/"><li>La Empresa</li></a>
                     <a href="#"><li>Utiles Escolares</li></a>
                     <a href="utiles_escolares.html"><li>Utiles de Oficina</li></a>
                     <a href="utiles_escolares.html"><li>Regalos</li></a>
@@ -101,51 +109,99 @@
 
                 <div class="caja_padre">
                     <div class="caja">
-                        <img src="img/Producto1.png" alt="">   
+                        <img src="img/Producto1.png" alt=""> 
+                        <div class="sub_registro">
+                            <input type="text" class="cantidad">
+                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
+                        </div>
                     </div>
 
                     <div class="caja">
-                        <img src="img/Producto2.png" alt="">    
+                        <img src="img/Producto2.png" alt="">
+                        <div class="sub_registro">
+                            <input type="text" class="cantidad">
+                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
+                        </div>  
                     </div>
 
                     <div class="caja">
-                        <img src="img/Producto3.png" alt="">    
-                    </div>
-
-                    <div class="caja">
-                        <img src="img/Producto4.png" alt="">  
-                    </div>
-
-                    <div class="caja">
-                        <img src="img/Producto1.png" alt="">   
-                    </div>
-
-                    <div class="caja">
-                        <img src="img/Producto2.png" alt="">    
-                    </div>
-
-                    <div class="caja">
-                        <img src="img/Producto3.png" alt="">    
+                        <img src="img/Producto3.png" alt=""> 
+                        <div class="sub_registro">
+                            <input type="text" class="cantidad">
+                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
+                        </div>   
                     </div>
 
                     <div class="caja">
                         <img src="img/Producto4.png" alt="">  
+                        <div class="sub_registro">
+                        <input type="text" class="cantidad">
+                        <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
+                      </div>
                     </div>
 
                     <div class="caja">
                         <img src="img/Producto1.png" alt="">   
+                        <div class="sub_registro">
+                            <input type="text" class="cantidad">
+                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
+                        </div>
                     </div>
 
                     <div class="caja">
-                        <img src="img/Producto2.png" alt="">    
+                        <img src="img/Producto2.png" alt="">   
+                        <div class="sub_registro">
+                            <input type="text" class="cantidad">
+                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
+                        </div> 
                     </div>
 
                     <div class="caja">
                         <img src="img/Producto3.png" alt="">    
+                        <div class="sub_registro">
+                            <input type="text" class="cantidad">
+                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
+                        </div>
                     </div>
 
                     <div class="caja">
                         <img src="img/Producto4.png" alt="">  
+                        <div class="sub_registro">
+                            <input type="text" class="cantidad">
+                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
+                        </div>
+                    </div>
+
+                    <div class="caja">
+                        <img src="img/Producto1.png" alt="">  
+                        <div class="sub_registro">
+                            <input type="text" class="cantidad">
+                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
+                        </div> 
+                    </div>
+
+                    <div class="caja">
+                        <img src="img/Producto2.png" alt="">    
+                        <div class="sub_registro">
+                            <input type="text" class="cantidad">
+                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
+                        </div>
+                    </div>
+
+                    <div class="caja">
+                        <img src="img/Producto3.png" alt="">  
+                        <div class="sub_registro">
+                            <input type="text" class="cantidad">
+                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
+                        </div>  
+                    </div>
+
+                    <div class="caja">
+                        <img src="img/Producto4.png" alt="">  
+                        <div class="sub_registro">
+                            <input type="text" class="cantidad">
+                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
+                        </div>
                     </div>
                 </div>
                 
@@ -153,8 +209,8 @@
         </section>
 
         <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
-        <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
+        <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+        <script src="{{STATIC_URL}}js/vendor/bootstrap.min.js"></script>
+        <script src="{{STATIC_URL}}js/main.js"></script>
     </body>
 </html>

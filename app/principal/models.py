@@ -2,13 +2,16 @@
 from django.db import models
 from django.template import defaultfilters
 
+"""
+Modelo : Categoria
+con sus respectivo atributo
+ejemplos : utiles escolares, 
+"""
+class Categoria(models.Model):
+    nombre = models.CharField(max_length = 30 )
 
-CATEGORIA = (
-        ('utiles escolares', 'utiles escolares'),
-        ('Oficina', 'oficina'),
-        ('Regalos', 'regalos')
-    )
-
+    def __unicode__(self):
+        return unicode(self.nombre)    
 
 
 """
@@ -44,14 +47,14 @@ class SubCategoria(models.Model):
 
     nombre =  models.CharField(max_length = 200)
     slug =  models.SlugField(max_length = 200)
-    categoria = models.CharField(max_length = 18 ,choices = CATEGORIA)
+    categoria = models.ManyToManyField(Categoria)
 
     def save(self, *args, **kwargs):
         self.slug = defaultfilters.slugify(self.nombre)
         super(SubCategoria, self).save(*args, **kwargs)
 
     def __unicode__(self):
-        return unicode(self.categoria + ' : ' + self.nombre)
+        return unicode(self.categoria.nombre + ' : ' + self.nombre)
 
 """
 Modelo : Producto

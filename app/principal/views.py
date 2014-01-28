@@ -7,3 +7,5 @@ def productos(request):
 	productos= Producto.objects.all()
 	return render_to_response('index.html',{'productos':productos}, context_instance=RequestContext(request))
 
+def utiles_escolares(request):
+	

@@ -8,8 +8,12 @@ con sus respectivo atributo
 ejemplos : utiles escolares, 
 """
 class Categoria(models.Model):
-    nombre = models.CharField(max_length = 30 )
-
+    nombre = models.CharField(max_length = 200 )
+    slug =  models.SlugField(max_length = 200)
+    def save(self, *args, **kwargs):
+        self.slug = defaultfilters.slugify(self.nombre)
+        super(Categoria, self).save(*args, **kwargs)
+        
     def __unicode__(self):
         return unicode(self.nombre)    
 
@@ -44,17 +48,24 @@ eleccion de una categoria por defecto tenemos 3
 ejemplos :  cuadernos , lapiceros, folders 
 """
 class SubCategoria(models.Model):
-
     nombre =  models.CharField(max_length = 200)
     slug =  models.SlugField(max_length = 200)
-    categoria = models.ManyToManyField(Categoria)
 
     def save(self, *args, **kwargs):
         self.slug = defaultfilters.slugify(self.nombre)
         super(SubCategoria, self).save(*args, **kwargs)
 
     def __unicode__(self):
-        return unicode(self.categoria.nombre + ' : ' + self.nombre)
+        return unicode(self.nombre)
+
+
+class CategoriaSubCategoria(models.Model):
+    categoria = models.ForeignKey(Categoria)
+    subcategoria = models.ForeignKey(SubCategoria)
+
+    def __unicode__(self):
+        return unicode(self.categoria.nombre + ' : ' + self.subcategoria.nombre)
+
 
 """
 Modelo : Producto
@@ -67,7 +78,7 @@ class Producto(models.Model):
     slug = models.SlugField(max_length=200)
     stock = models.IntegerField()   
     img=models.FileField(upload_to='imgProducto/')
-    subcategoria = models.ManyToManyField(SubCategoria)
+    categoriasubcategoria = models.ManyToManyField(CategoriaSubCategoria)
     Caracteristicavalor = models.ManyToManyField(Valor)
     def save(self, *args, **kwargs):
         self.slug = defaultfilters.slugify(self.nombre)

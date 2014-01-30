@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width">
 
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+        <link rel="stylesheet" href="http://code.jquery.com/jquery-1.10.2.min.js">
         <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.min.css">
         <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.css">
         <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
@@ -30,14 +31,14 @@
                     </div>
                     <div class="col-xs-2 col-xs-3-sinpadding">
                         <div class="app_img">
-                            <a href=""><img src="img/Facebook.png"></a>
-                            <a href=""><img src="img/Google-Plus.png"></a>
-                            <a href=""><img src="img/Twitter-Bird.png"></a>
+                            <a href=""><img src="{{STATIC_URL}}img/Facebook.png"></a>
+                            <a href=""><img src="{{STATIC_URL}}img/Google-Plus.png"></a>
+                            <a href=""><img src="{{STATIC_URL}}img/Twitter-Bird.png"></a>
                         </div>
                     </div>
                     <div class="col-xs-2 col-xs-3-sinpadding">
                         <div class="app_carrito">
-                            <img src="img/Carrito.png">
+                            <img src="{{STATIC_URL}}img/Carrito.png">
                             <span>(0) Carrito</span>
                         </div>
                     </div>
@@ -62,37 +63,17 @@
             <div class="navegacion">
                 <div class="navi">
                     <ul class="list_padre">
-                        <li class="list"><p>Utiles Escolares</p>
+                        {% for i in cat %}
+                         <li class="list" id='{{i.id}}' ><p>{{i.nombre}} </p>
+                            {% if forloop.first %}
                             <ul class=" list_hija">
-                                <li>Lapiceros</li>
-                                <li>Cuadernos</li>
-                                <li>Folders</li>
-                                <li>Libros</li>
-                                <li>Lapiceros</li>
-                                <li>Lapiceros</li>
-                                <li>Cuadernos</li>
-                                <li>Folders</li>
-                                <li>Libros</li>
+                                {% for j in sub %}
+                                    <li id ='{{ j.id}}'>{{j.subcategoria__nombre}}</li>
+                                {% endfor %}
                             </ul>
-                        </li>
-                        <li class="list"><p>Utiles de Oficina</p>
-                            <ul class=" list_hija">
-                                <li>Lapiceros</li>
-                                <li>Cuadernos</li>
-                                <li>Folders</li>
-                                <li>Libros</li>
-                                <li>Lapiceros</li>
-                            </ul>
-                        </li>
-                        <li class="list"><p>Regalos</p>
-                            <ul class=" list_hija">
-                                <li>Lapiceros</li>
-                                <li>Cuadernos</li>
-                                <li>Folders</li>
-                                <li>Libros</li>
-                                <li>Lapiceros</li>
-                            </ul>
-                        </li>
+                            {% endif %}
+                        </li>                           
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -101,99 +82,16 @@
 
                 <div class="caja_padre">
                     <div class="caja">
-                        <img src="img/Producto1.png" alt=""> 
+                    {% for k in pro  %}
+                        <p>{{k.nombre}}</p>
+                        <img src="{{MEDIA_URL}}{{k.img}}" alt="">  
                         <div class="sub_registro">
                             <input type="text" class="cantidad">
                             <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
                         </div>
-                    </div>
+                    {% endfor %}
+                    
 
-                    <div class="caja">
-                        <img src="img/Producto2.png" alt="">
-                        <div class="sub_registro">
-                            <input type="text" class="cantidad">
-                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
-                        </div>  
-                    </div>
-
-                    <div class="caja">
-                        <img src="img/Producto3.png" alt=""> 
-                        <div class="sub_registro">
-                            <input type="text" class="cantidad">
-                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
-                        </div>   
-                    </div>
-
-                    <div class="caja">
-                        <img src="img/Producto4.png" alt="">  
-                        <div class="sub_registro">
-                        <input type="text" class="cantidad">
-                        <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
-                      </div>
-                    </div>
-
-                    <div class="caja">
-                        <img src="img/Producto1.png" alt="">   
-                        <div class="sub_registro">
-                            <input type="text" class="cantidad">
-                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
-                        </div>
-                    </div>
-
-                    <div class="caja">
-                        <img src="img/Producto2.png" alt="">   
-                        <div class="sub_registro">
-                            <input type="text" class="cantidad">
-                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
-                        </div> 
-                    </div>
-
-                    <div class="caja">
-                        <img src="img/Producto3.png" alt="">    
-                        <div class="sub_registro">
-                            <input type="text" class="cantidad">
-                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
-                        </div>
-                    </div>
-
-                    <div class="caja">
-                        <img src="img/Producto4.png" alt="">  
-                        <div class="sub_registro">
-                            <input type="text" class="cantidad">
-                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
-                        </div>
-                    </div>
-
-                    <div class="caja">
-                        <img src="img/Producto1.png" alt="">  
-                        <div class="sub_registro">
-                            <input type="text" class="cantidad">
-                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
-                        </div> 
-                    </div>
-
-                    <div class="caja">
-                        <img src="img/Producto2.png" alt="">    
-                        <div class="sub_registro">
-                            <input type="text" class="cantidad">
-                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
-                        </div>
-                    </div>
-
-                    <div class="caja">
-                        <img src="img/Producto3.png" alt="">  
-                        <div class="sub_registro">
-                            <input type="text" class="cantidad">
-                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
-                        </div>  
-                    </div>
-
-                    <div class="caja">
-                        <img src="img/Producto4.png" alt="">  
-                        <div class="sub_registro">
-                            <input type="text" class="cantidad">
-                            <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
-                        </div>
                     </div>
                 </div>
                 
@@ -204,5 +102,67 @@
         <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
         <script src="{{STATIC_URL}}js/vendor/bootstrap.min.js"></script>
         <script src="{{STATIC_URL}}js/main.js"></script>
+                <script>
+
+        $(document).on("ready", setup);
+        $(document).on("ready", inicio);
+              function setup(){
+                $.ajaxSetup({
+                  beforeSend: function(xhr, settings) {
+                    function getCookie(name) {
+                      var cookieValue = null;
+                        if (document.cookie && document.cookie != '') {
+                          var cookies = document.cookie.split(';');
+                            for (var i = 0; i < cookies.length; i++) {
+                              var cookie = jQuery.trim(cookies[i]);
+                              // Does this cookie string begin with the name we want?
+                                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                break;
+                                }
+                            }
+                        }
+                    return cookieValue;
+                    }
+                    if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                  // Only send the token to relative URLs i.e. locally.
+                      xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+                    }
+                  }
+                });
+              }
+        function inicio()
+        {
+                $(".list").on('click', mostrarSubcategorias);
+
+               // $(".eliminar").on('click', mostrarProductos);
+        }
+        function mostrarSubcategorias(){
+            var info = $(this);
+            var id = info.attr('id');
+            console.log(info);
+            $.ajax({
+            url: "/ajax/ver_subcategoria/",
+            type: "POST",
+            data:{'id':id},
+            success: function(data) {
+                var html = "";
+                    for( i=0;i<data.length; i++){
+                        html +="<li id ='"+ data[i].pk +"' >"+ data[i].nombre+"</li>"; 
+                        }
+          
+            },
+
+            error: function(data){
+                    console.log(data);
+            }
+          });
+        }
+
+        function mostrarProductos(argument) {
+            // body...
+        }
+        </script>
+
     </body>
 </html>

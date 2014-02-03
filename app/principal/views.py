@@ -27,24 +27,15 @@ def utiles_escolares(request):
 			'categoria' : i.nombre,
 			'sub' : sub
 			})
-	productos =  Producto.objects.filter(categoriasubcategoria__id = subcategorias[0].id).values('nombre','stock','img') 
+	productos =  Producto.objects.filter(categoriasubcategoria__id = subcategorias[0].id).values('nombre','stock','img','precio') 
 	return render_to_response('utiles_escolares.html',{'datos':datos,'productos':productos}, context_instance=RequestContext(request))	
 
 
 def ajax_ver_subcategorias(request):
 	if request.is_ajax():
 		if request.method=="POST":
-			productos = Producto.objects.filter(categoriasubcategoria__id = request.POST['id']).values('id','nombre','stock','img') 
-			ct = []
-			for i in productos:
-				ct.append(
-					{
-					'id' : i['id'],
-					'nombre' : i['nombre'],
-					'stock' : i['stock'],
-					'img' : i['img']
-					})
-			data = json.dumps(ct)
+			productos = Producto.objects.filter(categoriasubcategoria__id = request.POST['id'])
+			data = serializers.serialize('json', productos,fields = ( 'pk','nombre','stock','precio','img'))
 			return HttpResponse(data , mimetype="application/json")
 
 

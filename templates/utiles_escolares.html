@@ -84,6 +84,7 @@
                     {% for k in productos  %}
                     <div class="caja">
                         <p>{{k.nombre}}</p>
+                        <p>{{k.precio}}</p>
                         <img src="{{MEDIA_URL}}{{k.img}}" alt="">  
                         <div class="sub_registro">
                             <input type="text" class="cantidad">
@@ -147,9 +148,10 @@
                 html = "";
                 console.log(data);
                 for(i=0;i< data.length;i++){
-                    html += "<div class='caja'>";
-                    html += '<p>' + data[i].nombre +'</p>';
-                    html += "<img src='{{MEDIA_URL}}"+data[i].img+"'>";  
+                    html += "<div class='caja' id ='"+data[i].pk+"'>";
+                    html += '<p>' + data[i].fields.nombre +'</p>';
+                    html += '<p>' + data[i].fields.precio+ '</p>';
+                    html += "<img src='{{MEDIA_URL}}"+data[i].fields.img+"'>";  
                     html += "<div class='sub_registro'>";
                     html += "<input type='text' class='cantidad'>";
                     html += "<input type='submit' value='Comprar' class='btn btn-primary btn-xs compra'>";

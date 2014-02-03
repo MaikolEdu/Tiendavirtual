@@ -12,8 +12,6 @@ class ProductoAdmin(admin.ModelAdmin):
 	prepopulated_fields = { 'slug': ['nombre'] }
 
 
-
-
 admin.site.register(Categoria, AdminEntries)
 admin.site.register(Producto,ProductoAdmin)
 admin.site.register(SubCategoria, AdminEntries)

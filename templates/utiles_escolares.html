@@ -63,15 +63,15 @@
             <div class="navegacion">
                 <div class="navi">
                     <ul class="list_padre">
-                        {% for i in cat %}
-                         <li class="list" id='{{i.id}}' ><p>{{i.nombre}} </p>
-                            {% if forloop.first %}
-                            <ul class=" list_hija">
-                                {% for j in sub %}
-                                    <li id ='{{ j.id}}'>{{j.subcategoria__nombre}}</li>
+                        {% for i in datos %}
+                         <li class="list" ><p>{{i.categoria}}</p>
+                            <ul class="list_hija">
+                                {% for j in i.sub %}
+                                <li class = 'sub' id= '{{j.id}}'> {{j.nombre}}</li>
+                                {% empty %}
+                                <li>no hay sub</li>
                                 {% endfor %}
                             </ul>
-                            {% endif %}
                         </li>                           
                         {% endfor %}
                     </ul>
@@ -81,18 +81,16 @@
             <div class="prod">
 
                 <div class="caja_padre">
+                    {% for k in productos  %}
                     <div class="caja">
-                    {% for k in pro  %}
                         <p>{{k.nombre}}</p>
                         <img src="{{MEDIA_URL}}{{k.img}}" alt="">  
                         <div class="sub_registro">
                             <input type="text" class="cantidad">
                             <input type="submit" value="Comprar" class="btn btn-primary btn-xs compra">  
                         </div>
-                    {% endfor %}
-                    
-
                     </div>
+                    {% endfor %}
                 </div>
                 
             </div>
@@ -133,24 +131,34 @@
               }
         function inicio()
         {
-                $(".list").on('click', mostrarSubcategorias);
+            $(".sub").on('click', mostrarProductos);
 
                // $(".eliminar").on('click', mostrarProductos);
         }
-        function mostrarSubcategorias(){
+        function mostrarProductos(){
             var info = $(this);
             var id = info.attr('id');
-            console.log(info);
+            console.log(id);
             $.ajax({
             url: "/ajax/ver_subcategoria/",
             type: "POST",
             data:{'id':id},
             success: function(data) {
-                var html = "";
-                    for( i=0;i<data.length; i++){
-                        html +="<li id ='"+ data[i].pk +"' >"+ data[i].nombre+"</li>"; 
-                        }
-          
+                html = "";
+                console.log(data);
+                for(i=0;i< data.length;i++){
+                    html += "<div class='caja'>";
+                    html += '<p>' + data[i].nombre +'</p>';
+                    html += "<img src='{{MEDIA_URL}}"+data[i].img+"'>";  
+                    html += "<div class='sub_registro'>";
+                    html += "<input type='text' class='cantidad'>";
+                    html += "<input type='submit' value='Comprar' class='btn btn-primary btn-xs compra'>";
+                    html += "</div>";
+                    html += "</div>";
+                }
+                
+                $(".caja_padre").html(html);
+                
             },
 
             error: function(data){
@@ -159,9 +167,6 @@
           });
         }
 
-        function mostrarProductos(argument) {
-            // body...
-        }
         </script>
 
     </body>

@@ -5,6 +5,8 @@ $("p").eq(0).on("click", {id:0}, mostrar);
 $("p").eq(1).on("click", {id:1}, mostrar);
 $("p").eq(2).on("click", {id:2}, mostrar);
 $("p").eq(3).on("click", {id:3}, mostrar);
+$("p").eq(4).on("click", {id:4}, mostrar);
+$("p").eq(5).on("click", {id:5}, mostrar);
 
 
 function mostrar(event){
@@ -22,6 +24,12 @@ function mostrar(event){
 
 	if(event.data.id==3){
 		$(".list_hija").eq(3).toggle(500);
+	}
+	if(event.data.id==4){
+		$(".list_hija").eq(4).toggle(500);
+	}
+	if(event.data.id==5){
+		$(".list_hija").eq(5).toggle(500);
 	}
 };
 

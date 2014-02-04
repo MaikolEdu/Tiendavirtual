@@ -166,33 +166,25 @@ ul
     text-decoration: none;
 }
 
-.activateE{
-    height: 67px;
-    margin-bottom: 0;
-}
-.activateU{
-    height: 67px;
-    margin-bottom: 0;
-}
-.activateO{
-    height: 67px;
-    margin-bottom: 0;
-}
-.activateR{
-    height: 67px;
-    margin-bottom: 0;
-}
-.activateC{
-    height: 67px;
-    margin-bottom: 0;
-}
 /* Efectos de Pestañas de navegacion*/
-.turquesa :hover
-{
-    color:#1ABC9C;
+#verde:hover .linea_nav{
+    background: #76d03b;
 }
-.turquesa:hover .linea_nav{
-    background: #1ABC9C;
+
+#granate:hover .linea_nav{
+    background: #C0392B;
+}
+
+#amarillo:hover .linea_nav{
+    background: #F1C40F;
+}
+
+#morado:hover .linea_nav{
+    background: #C6A49A;
+}
+
+#agua:hover .linea_nav{
+    background: #59DBD5;
 }
 
 .nav_linea{

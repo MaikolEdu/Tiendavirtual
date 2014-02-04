@@ -15,8 +15,8 @@
         <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.min.css">
         <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
         <link rel="stylesheet" href="{{STATIC_URL}}css/fonts.css">
-        
         <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.2.min.js"></script>
+        {% block estilos %}{% endblock %}
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -61,7 +61,7 @@
                     <li class="turquesa click">
                        <div class="activateU">
                         <div class="linea_nav l_activa_escolar"></div>
-                        <a href="escolares.html">Utiles Escolares</a>
+                        <a href="utiles_escolares/">Utiles Escolares</a>
                        </div>
                     </li>
                     <li class="turquesa click">

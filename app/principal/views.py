@@ -8,7 +8,15 @@ import json
 
 def inicio(request):
 	productos = Producto.objects.order_by('-id')[:4]
-	catsubcat = Categoria.objects.order_by('id')[:3]
+	productoss = Producto.objects.order_by('?')[:10]
+	d =[]
+	for x in xrange(len( productoss)):
+	 	print "inicio %s" % x
+	 	for j in xrange(x,x+3):
+	 		print j
+	 	x = j + 1
+	 	print "fin %s" % x
+	 	
 	return render_to_response('index.html',{'productos':productos}, context_instance=RequestContext(request))
 
 def utiles_escolares(request):
@@ -38,14 +46,3 @@ def ajax_ver_subcategorias(request):
 			data = serializers.serialize('json', productos,fields = ( 'pk','nombre','stock','precio','img'))
 			return HttpResponse(data , mimetype="application/json")
 
-
-"""
-# def ajax_ver_productos(request):
-# 	if request.is_ajax():
-# 		if request.method=="POST":
-# 			pk=request.POST['id']
-# 			subcategorias = CategoriaSubCategoria.objects.filter(categoria__id = pk)
-# 			data = serializers.serialize('json', subcategorias)
-# 			print data
-# 			return HttpResponse(data , mimetype="application/json")
-"""

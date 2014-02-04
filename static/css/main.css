@@ -11,9 +11,8 @@ textarea {
 }
 
 body {
-    font-size: 14px;
+    font-size: 1em;
     line-height: 1.4;
-    overflow-x:hidden;
 }
 
 ::-moz-selection {
@@ -60,139 +59,293 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-/*CSS para Header*/
-.app_header
-{
-    background: #F7F9F9;
-}
-.title
-{
-    margin: 5px;
-    font-size: 50px;
-    font-family: 'Tangerine', serif;
-    text-shadow: 4px 4px 4px #aaa;
-}
-.app_img
-{
-    width: 85px;
-    margin-top: 25px;
-    float: right;
-}
 
-.app_carrito
+/*-------Uso General--------*/
+.color1
 {
-    width: 110px;
-    margin-top: 25px;
-    float: right;
-}
-
-.col-xs-3-sinpadding
-{
-    padding-left: 0;
-    padding-right: 0;
-}
-/********************/
-
-
-/*CSS para Barra de Navegacion*/
-
-ul
-{
-    margin: 0;
-    padding: 0;
-}
-.app_nav
-{
-    background: #333;
-}
-.app_ul li
-{
-    display: inline-block;
-    margin: 0 auto;
-    padding: 15px;
-    color: #999;
-}
-
-.app_ul li:hover
-{
-    color: white;
-}
-
-/*Solo modifico el primer elemento(1)*/
-.app_ul a:nth-child(1)
-{
-    font-size: 18px;
-}
-
-/********************/
-/*Slider*/
-.adaptar
-{
-    width: 100%;
+  background: red;
 }
 .app_margen
 {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-/*********/
+/*-------------------------*/
 
-/*Formulario*/
+/*------Header------*/
+.app_title
+{
+    margin: 5px;
+    font-size: 50px; 
+    font-family: 'Tangerine', serif;
+    text-shadow: 4px 4px 4px #aaa;
+}
+.app_header
+{
+    background: white;
+    border-top: 6px solid #eceef1;
+}
+.app_logo
+{
+    width: 300px;
+}
+.app_font1
+{
+    font-size: 20px;
+    margin-top: 30px;
+    float: right;
+    width: 80px;
+}
+.app_font2
+{
+    margin-top: 30px;
+    float: left;
+    width: 150px;
+}
+.app_size
+{
+    font-size: 20px;
+}
+a:link
+{
+  text-decoration: none;
+}
+.app_link
+{
+  color: black;
+}
 
-.app_text
+/*------------------*/
+
+
+
+
+/*------Barra de Navegación------*/
+.app_nav
+{
+   background: #0e7ac4;
+   /*background: white;*/
+}
+
+/***********************************/
+/***************Mayra***************/
+/***********************************/
+ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+.app_ul li
+{
+    display: inline-block;
+    list-style-type: none;
+    margin: 15px 34px 0px 34px;
+    width: 155px;
+    height: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+.app_ul li .linea_nav{
+
+    background-color: white;
+    /*background: #cccccc;*/
+    width: 97%;
+    margin: 0 auto 15px;
+    height: 6px;
+}
+
+.app_ul li a{
+    letter-spacing: 2px;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    /*color: #cccccc;*/
+    font-family: 'Duru Sans', sans-serif;
+    text-decoration: none;
+}
+
+.activateE{
+    height: 67px;
+    margin-bottom: 0;
+}
+.activateU{
+    height: 67px;
+    margin-bottom: 0;
+}
+.activateO{
+    height: 67px;
+    margin-bottom: 0;
+}
+.activateR{
+    height: 67px;
+    margin-bottom: 0;
+}
+.activateC{
+    height: 67px;
+    margin-bottom: 0;
+}
+/* Efectos de Pestañas de navegacion*/
+.turquesa :hover
+{
+    color:#1ABC9C;
+}
+.turquesa:hover .linea_nav{
+    background: #1ABC9C;
+}
+
+.nav_linea{
+    background: #cccccc;
+    margin-top: 0;
+    height: 3px;
+}
+
+/***********************************/
+/***********************************/
+/***********************************/
+
+
+
+
+
+
+
+
+/*-------------Slider------------*/
+.app_slider
+{
+    background: #3498DB;
+}
+.centrar
+{
+    margin:15px auto;
+}
+.app_margen1
+{
+    margin: 20px 53px;
+}
+.app_input
+{
+    display: block;
+    border: 1px solid #D2D4D6;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 5px;
+    font-size: 18px;
+}
+
+/****************************/
+/*Copy Paste Bootstrap u.U*/
+/****************************/
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+.btn-primary:hover
+{
+  color: #ffffff;
+  background-color: #3276b1;
+  border-color: #285e8e;
+}
+.btn-primary {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+/****************************/
+/****************************/
+
+/*------------------*/
+
+
+/*-----section mas vendidos------*/
+.app_lista1
+{
+    background: #ECF0f1;
+}
+h5
+{
+    margin: 0;
+}
+.app_centrar
 {
     text-align: center;
 }
-.app-button
+.app_padding
 {
-    margin-bottom: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
-.app_margenform
+/*------------------*/
+
+/*-----section envios------*/
+.app_envios
 {
-    margin-top: 10px;
+    background: #ECF0f1;
 }
-.app-separar
+.app_font3
 {
-    margin-right: 10px;
-    margin-left: 10px;
-}
-.app-tam
-{
-    font-size: 11px;
-}
-.margen
-{
-    margin: 0 3px;
+    font-size: 45px;
+    margin-top: 30px;
 }
 
-/***************/
+/*-------------------------*/
 
-/*Seccion Envios*/
-.color
-{
-    background: #DCDEDE;
-}
-.app_tam
-{
-    margin-top: 25px;
-}
-.txt
-{
-    text-align: justify;
-}
-
-/***************/
-
+/*-----Footer------*/
 .app_footer
 {
-    background: black;
-}
-.app-colorf
-{
+    background: #0e7ac4;
+    font-family: "Avenir", Futura, Helvetica, sans-serif;
     color: white;
-    text-align: center;
+    letter-spacing: 2px;
 }
+/*-------------------------*/
 
+
+/*********************************************************/
+/************************Productos************************/
+.app-div1
+{
+  width: 45px;
+  display: inline-block;
+  margin-right: 18px;
+}
+.app-div2
+{
+  width: 80px;
+  display: inline-block;
+}
+.app_cantidad
+{
+  width: 100%;
+  border-radius: 6px;
+}
+.app_agregar
+{
+  width: 100%;
+  border-radius: 6px;
+  display: inline-block;
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
 
 
 

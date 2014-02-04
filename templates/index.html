@@ -1,114 +1,32 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+{% extends "base.html" %}
 
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-        <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.min.css">
-        <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
-        <link rel="stylesheet" href="{{STATIC_URL}}css/fonts.css">
-        
-        <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.2.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+{% block title %}La Empresa{% endblock %}
 
-        <header class="app_header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-8">
-                        <div class="app_logo">
-                            <p class="app_title">La Empresa</p>
+        {% block content %}
+
+            <section class="app_slider">
+                <div class="container">
+                    <div class="row app_margen">
+                        <div class="col-xs-8">
+                            <img src="{{STATIC_URL}}img/slider.png" class="img-responsive">
                         </div>
-                    </div>
-                    <div class="col-xs-2">
-                        <div class="app_font1">
-                            <a href="#" class="app_link"><span class="icon-twitter"></span></a>
-                            <a href="#" class="app_link"><span class="icon-facebook"></span></a>
-                            <a href="#" class="app_link"><span class="icon-google-plus"></span></a>
-                        </div>
-                    </div>
-                    <div class="col-xs-2">
-                        <div class="app_font2">
-                            <span class="icon-cart app_size"></span>
-                            <span>( 0 ) Productos</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!--Barra de Navegacion - Mayra Reloca XD-->
-        <nav class="app_nav">
-            <div class="container">
-                <ul class="app_ul app_margen">
-                    <li class="turquesa click">
-                      <div class="activateE">
-                        <div class="linea_nav l_activa_empresa"></div>
-                        <a href="index.html">La Empresa</a>
-                      </div>
-                    </li>
-                    <li class="turquesa click">
-                       <div class="activateU">
-                        <div class="linea_nav l_activa_escolar"></div>
-                        <a href="escolares.html">Utiles Escolares</a>
-                       </div>
-                    </li>
-                    <li class="turquesa click">
-                       <div class="activateO">
-                        <div class="linea_nav l_activa_oficina"></div>
-                        <a href="oficina.html">Utiles de Oficina</a>
-                       </div>
-                    </li>
-                    <li class="turquesa click">
-                       <div class="activateR">
-                        <div class="linea_nav l_activa_regalo"></div>
-                         <a href="regalos.html">Regalos</a>
-                       </div>
-                    </li>
-                    <li class="turquesa click">
-                       <div class="activateC">
-                        <div class="linea_nav l_activa_contacto"></div>
-                        <a href="contactanos.html">Contáctenos</a>
-                       </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <section class="app_slider">
-            <div class="container">
-                <div class="row app_margen">
-                    <div class="col-xs-8">
-                        <img src="{{STATIC_URL}}img/slider.png" class="img-responsive">
-                    </div>
-                    <div class="col-xs-4">
-                        <div class="centrar">
-                            <div class="img-thumbnail">
-                                <div class="app_margen1">
-                                    <h4>Recibe nuestras ofertas</h4>
-                                    <h2>Déjanos tu email!!!</h2>
+                        <div class="col-xs-4">
+                            <div class="centrar">
+                                <div class="img-thumbnail">
+                                    <div class="app_margen1">
+                                        <h4>Recibe nuestras ofertas</h4>
+                                        <h2>Déjanos tu email!!!</h2>
+                                    </div>
+                                    <form class="app_margen1">
+                                        <input type="email" name="miemail" id="miemail" placeholder="email" class="app_input">
+                                        <input type="submit" value="Enviar" class="btn btn-primary">
+                                    </form>
                                 </div>
-                                <form class="app_margen1">
-                                    <input type="email" name="miemail" id="miemail" placeholder="email" class="app_input">
-                                    <input type="submit" value="Enviar" class="btn btn-primary">
-                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
         <section class="app_lista1">
             <div class="container">
@@ -158,54 +76,53 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="app_envios">
-            <div class="container">
-                <div class="row app_margen">
-                    <div class="col-xs-4">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <div class="app_font3">
-                                    <span class="icon-truck"></span>
+            <section class="app_envios">
+                <div class="container">
+                    <div class="row app_margen">
+                        <div class="col-xs-4">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <div class="app_font3">
+                                        <span class="icon-truck"></span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-9">
-                                <h3>¿Me lo envian?</h3>
-                                <p>Si!! hacemos envios a todo Trujillo. Muy pronto a nivel Nacional</p>
+                                <div class="col-xs-9">
+                                    <h3>¿Me lo envian?</h3>
+                                    <p>Si!! hacemos envios a todo Trujillo. Muy pronto a nivel Nacional</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xs-4">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <div class="app_font3">
-                                    <span class="icon-credit"></span>
+                        <div class="col-xs-4">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <div class="app_font3">
+                                        <span class="icon-credit"></span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-9">
-                                <h3>¿Cómo Pago?</h3>
-                                <p>Paga con cualquier tarjeta de credito o débito. Compras 100% seguras!.</p>
+                                <div class="col-xs-9">
+                                    <h3>¿Cómo Pago?</h3>
+                                    <p>Paga con cualquier tarjeta de credito o débito. Compras 100% seguras!.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xs-4">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <div class="app_font3">
-                                    <span class="icon-mail2"></span>
+                        <div class="col-xs-4">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <div class="app_font3">
+                                        <span class="icon-mail2"></span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-9">
-                                <h3>¿Me Ayudan?</h3>
-                                <p>Contáctanos enviando un mensaje al correo hola@empresa.com</p>
+                                <div class="col-xs-9">
+                                    <h3>¿Me Ayudan?</h3>
+                                    <p>Contáctanos enviando un mensaje al correo hola@empresa.com</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
         <section class="app_lista2">
             <div class="container">
@@ -255,17 +172,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <footer class="app_footer">
-            <div class="container">
-                <p>Derechos reservados @2014 Qaysen</p>
-            </div>
-        </footer>
+        {% endblock %}
 
-        <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+        
 
-        <script src="{{STATIC_URL}}js/main.js"></script>
-    </body>
-</html>
+    

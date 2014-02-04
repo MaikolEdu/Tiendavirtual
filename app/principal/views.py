@@ -36,7 +36,7 @@ def utiles_escolares(request):
 			'sub' : sub
 			})
 	productos =  Producto.objects.filter(categoriasubcategoria__id = subcategorias[0].id).values('nombre','stock','img','precio') 
-	return render_to_response('utiles_escolares.html',{'datos':datos,'productos':productos}, context_instance=RequestContext(request))	
+	return render_to_response('Productos.html',{'datos':datos,'productos':productos}, context_instance=RequestContext(request))	
 
 
 def ajax_ver_subcategorias(request):

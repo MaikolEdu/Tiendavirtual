@@ -45,5 +45,6 @@ def ajax_ver_subcategorias(request):
 			data = serializers.serialize('json', productos,fields = ( 'pk','nombre','stock','precio','img'))
 			return HttpResponse(data , mimetype="application/json")
 
-def ver_detalle(request):
+def ver_detalle(request,id_producto):
+
 	return HttpResponse('Descripcion.html')

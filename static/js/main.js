@@ -52,6 +52,37 @@ function mostraricono(event){
    }
 }
 
+/*------------ Funcionalidades para el Modal ------------*/
+
+$('#enlace_modal').on('click', mostrarModal);
+/*$('#modal_content').parent().on('click', ocultarModal);*/
+
+function mostrarModal(){
+   $('#modal').show();
+   $('body').css({'overflow-y':'hidden'});
+}
+
+/*function ocultarModal(){
+   $('#modal').hide();
+   $('body').css({'overflow-y':'visible'});
+}*/
+
+$('.boton_edit').eq(0).on('click', {id:0}, mostrarFormEdit);
+$('.boton_edit').eq(1).on('click', {id:1}, mostrarFormEdit);
+
+
+
+function mostrarFormEdit(event){
+   if(event.data.id==0){
+      $("#input_edit").eq(0).toggle(500);
+   }
+   if(event.data.id==1){
+      $("#input_edit").eq(1).toggle(500);
+   }
+}
+
+/*-------------------------------------------------------*/
+
 
 
 

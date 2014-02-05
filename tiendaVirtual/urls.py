@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^utiles_escolares/$','app.principal.views.utiles_escolares'),
 
     url(r'^ajax/ver_subcategoria/$', 'app.principal.views.ajax_ver_subcategorias'),
+    url(r'^porductos/(?P<id_usuario>\d+)$', 'app.principal.views.ver_detalle'),
 
 )
 

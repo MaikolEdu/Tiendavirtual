@@ -10,12 +10,11 @@ def inicio(request):
 	productos = Producto.objects.order_by('-id')[:4]
 	productoss = Producto.objects.order_by('?')[:10]
 	d =[]
-	for x in xrange(len( productoss)):
-	 	print "inicio %s" % x
-	 	for j in xrange(x,x+3):
-	 		print j
-	 	x = j + 1
-	 	print "fin %s" % x
+	for x in xrange(10):
+		de = []
+		for y in xrange(3):
+			print y
+
 	 	
 	return render_to_response('index.html',{'productos':productos}, context_instance=RequestContext(request))
 
@@ -46,3 +45,5 @@ def ajax_ver_subcategorias(request):
 			data = serializers.serialize('json', productos,fields = ( 'pk','nombre','stock','precio','img'))
 			return HttpResponse(data , mimetype="application/json")
 
+def ver_detalle(request):
+	return HttpResponse('Descripcion.html')

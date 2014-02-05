@@ -47,4 +47,4 @@ def ajax_ver_subcategorias(request):
 
 def ver_detalle(request,id_producto):
 
-	return HttpResponse('Descripcion.html')
+	return render_to_response('Descripcion.html', context_instance=RequestContext(request))

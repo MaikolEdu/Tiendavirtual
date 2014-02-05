@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="col-xs-2">
-                        <div class="app_font2">
+                        <div class="app_font2" id="enlace_modal">
                             <span class="icon-cart app_size"></span>
                             <span>( 0 ) Productos</span>
                         </div>
@@ -55,7 +55,7 @@
                     <li id="verde">
                       <div>
                         <div class="linea_nav"></div>
-                        <a href="index.html">La Empresa</a>
+                        <a href="/">La Empresa</a>
                       </div>
                     </li>
                     <li id="granate">
@@ -90,7 +90,91 @@
 
 		{% endblock %}
 		
-        
+        <div id="modal">
+        	<div id="modal_content">
+				<div id="mcontent_true">
+					<h3>Productos en tu Carrito</h3>
+					<table id="table_mcontent">
+						<tr>
+							<th class="table_first">N°</th>
+							<th class="table_second">Producto</th>
+							<th class="table_third">Cantidad</th>
+                            <th class="table_fourth">Precio Unit.</th>
+							<th class="table_fifth">Subtotal</th>
+                            <th class="table_sixth"></th>
+						</tr>
+						<tr>
+							<td class="table_first">
+                                1
+                            </td>
+							<td class="table_second">
+                                <img src="{{STATIC_URL}}img/Producto1.png" alt="" width="50px" height="50px">
+                                <span class="letter_table">Lapiceros - Marca Pilot</span> 
+                            </td>
+							<td class="table_third">									
+								<select>
+                                  <option value="uno">1</option>
+                                  <option value="dos">2</option>
+                                  <option value="tres">3</option>
+                                  <option value="cuatro">4</option>
+                                </select>
+							</td>
+							<td class="table_fourth">S/. 1.50</td>
+                            <td class="table_fifth">S/. 6.00</td>
+							<td class="table_sixth">
+                                <button class="boton_delete"><img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px"></button>
+                            </td>
+						</tr>
+
+                        <tr>
+                            <td class="table_first">
+                                1
+                            </td>
+                            <td class="table_second">
+                                <img src="{{STATIC_URL}}img/Producto1.png" alt="" width="50px" height="50px">
+                                <span class="letter_table">Lapiceros - Marca Pilot</span> 
+                            </td>
+                            <td class="table_third">                                    
+                                <select>
+                                  <option value="uno">1</option>
+                                  <option value="dos">2</option>
+                                  <option value="tres">3</option>
+                                  <option value="cuatro">4</option>
+                                </select>
+                            </td>
+                            <td class="table_fourth">S/. 1.50</td>
+                            <td class="table_fifth">S/. 6.00</td>
+                            <td class="table_sixth">
+                                <button class="boton_delete"><img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px"></button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="table_first">
+                                1
+                            </td>
+                            <td class="table_second">
+                                <img src="{{STATIC_URL}}img/Producto1.png" alt="" width="50px" height="50px">
+                                <span class="letter_table">Lapiceros - Marca Pilot</span> 
+                            </td>
+                            <td class="table_third">                                    
+                                <select>
+                                  <option value="uno">1</option>
+                                  <option value="dos">2</option>
+                                  <option value="tres">3</option>
+                                  <option value="cuatro">4</option>
+                                </select>
+                            </td>
+                            <td class="table_fourth">S/. 1.50</td>
+                            <td class="table_fifth">S/. 6.00</td>
+                            <td class="table_sixth">
+                                <button class="boton_delete"><img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px"></button>
+                            </td>
+                        </tr>
+					</table>
+				</div>
+        	</div>
+        </div>
 
         <footer class="app_footer">
             <div class="container">

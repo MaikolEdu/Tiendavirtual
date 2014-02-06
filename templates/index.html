@@ -38,7 +38,7 @@
                                 </div>
                                 <img src="{{MEDIA_URL}}{{i.img}}" class="img-responsive">
                                 <div class="app_alinear app_centrar">
-                                    <h5>S/.20.00 </h5>
+                                    <h5>{{i.precio}} </h5>
                                 </div>
                                 <a href="/productos/{{i.id}}">Ver detalle</a>
                             </div>
@@ -96,56 +96,33 @@
                 </div>
             </section>
 
+
+
+<!-- Iteracion de productos de forma aleatoria    -->
             <section class="app_lista2">
                 <div class="container">
+                {% for x in otros %}
                     <div class="row app_margen">
+                    {% for y in x  %}
                         <div class="col-xs-3">
                             <div class="img-thumbnail app_padding">
                                 <div class="app_alinear">
-                                     <h5>Nombre</h5>
+                                     <h5>{{y.nombre}}</h5>
                                 </div>
                                 <img src="{{STATIC_URL}}img/productos.png" class="img-responsive">
                                 <div class="app_alinear app_centrar">
-                                     <h5>S/.20.00 </h5>
+                                     <h5>{{y.precio}} </h5>
                                 </div>
+                                <a href="/productos/{{y.id}}">Ver detalle</a>
                             </div>
                         </div>
-                        <div class="col-xs-3">
-                            <div class="img-thumbnail app_padding">
-                                <div class="app_alinear">
-                                     <h5>Nombre</h5>
-                                </div>
-                                <img src="{{STATIC_URL}}img/productos.png" class="img-responsive">
-                                <div class="app_alinear app_centrar">
-                                     <h5>S/.20.00 </h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="img-thumbnail app_padding">
-                                <div class="app_alinear">
-                                     <h5>Nombre</h5>
-                                </div>
-                                <img src="{{STATIC_URL}}img/productos.png" class="img-responsive">
-                                <div class="app_alinear app_centrar">
-                                     <h5>S/.20.00 </h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="img-thumbnail app_padding">
-                                <div class="app_alinear">
-                                     <h5>Nombre</h5>
-                                </div>
-                                <img src="{{STATIC_URL}}img/productos.png" class="img-responsive">
-                                <div class="app_alinear app_centrar">
-                                     <h5>S/.20.00 </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
+                    </div>           
+                {% endfor %}
                 </div>
             </section>
+
+<!-- *********************************************    -->
 
         {% endblock %}
 

@@ -9,14 +9,19 @@ import json
 def inicio(request):
 	productos = Producto.objects.order_by('-id')[:4]
 	productoss = Producto.objects.order_by('?')[:10]
-	d =[]
-	for x in xrange(10):
-		de = []
-		for y in xrange(3):
-			print y
-
-	 	
-	return render_to_response('index.html',{'productos':productos}, context_instance=RequestContext(request))
+	data = []
+	datos = []
+	for x in productoss:
+		data.append({
+			'nombre':x.nombre,
+			'img':x.img,
+			'precio':x.precio,
+			'id':x.id
+			})
+	datos.append(data[:4])
+	datos.append(data[4:8])
+	datos.append(data[8:10])
+	return render_to_response('index.html',{'productos':productos, 'otros':datos}, context_instance=RequestContext(request))
 
 def utiles_escolares(request):
 	categorias = Categoria.objects.all()

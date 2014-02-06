@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('../fonts/icomoon.eot?-y7aj6v');
-	src:url('../fonts/icomoon.eot?#iefix-y7aj6v') format('embedded-opentype'),
-		url('../fonts/icomoon.woff?-y7aj6v') format('woff'),
-		url('../fonts/icomoon.ttf?-y7aj6v') format('truetype'),
-		url('../fonts/icomoon.svg?-y7aj6v#icomoon') format('svg');
+	src:url('../fonts/icomoon.eot?-gz45gh');
+	src:url('../fonts/icomoon.eot?#iefix-gz45gh') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?-gz45gh') format('woff'),
+		url('../fonts/icomoon.ttf?-gz45gh') format('truetype'),
+		url('../fonts/icomoon.svg?-gz45gh#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -61,6 +61,21 @@
 }
 .icon-arrow-right:before {
 	content: "\e611";
+}
+.icon-close:before {
+	content: "\e61a";
+}
+.icon-forward:before {
+	content: "\e61b";
+}
+.icon-rewind:before {
+	content: "\e61c";
+}
+.icon-forward2:before {
+	content: "\e61d";
+}
+.icon-backward:before {
+	content: "\e61e";
 }
 .icon-thumbs-up2:before {
 	content: "\e60b";

@@ -321,7 +321,7 @@ h5
 }
 .app-div2
 {
-  width: 80px;
+  width: 70px;
   display: inline-block;
 }
 .app_cantidad
@@ -464,8 +464,32 @@ h5
 /* ======================================== */
 
 
-
-
+.app-size1
+{
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-family: 'Duru Sans', sans-serif;
+}
+.app-size2
+{
+  font-size: 15px;
+  color: #555;
+  letter-spacing: 2px;
+  font-family: 'Duru Sans', sans-serif;
+}
+.app-size3
+{
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-family: 'Duru Sans', sans-serif;
+  color: #0e7ac4;
+}
+.app-size4
+{
+  letter-spacing: 2px;
+  font-family: 'Duru Sans', sans-serif;
+  color: #0e7ac4;
+}
 
 
 

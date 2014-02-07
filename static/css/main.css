@@ -203,6 +203,35 @@ ul
     font-size: 18px;
 }
 
+.banner { position: relative; overflow: auto; }
+.banner li { list-style: none; }
+.banner ul li { float: left;height: 300px; }
+
+/*PUNTOS DEL SLIDER*/
+.banner .dots{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  margin-left: 300px;
+}
+
+.banner .dots li{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin:0 4px;
+  border:2px solid #fff;
+  border-radius: 6px;
+  text-indent: -999em;
+  cursor: pointer;
+  opacity: .4;
+}
+
+.banner .dots li.active{
+  background: #fff;
+  opacity: 1;
+}
 /****************************/
 /*Copy Paste Bootstrap u.U*/
 /****************************/

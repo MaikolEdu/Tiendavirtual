@@ -53,7 +53,7 @@
         <!--Barra de Navegacion - Mayra Reloca XD-->
         <nav class="app_nav">
             <div class="container">
-                <ul class="app_ul app_margen">
+                <ul class="app_ul">
                     <li id="verde">
                       <div>
                         <a href="/">La Empresa</a>
@@ -247,7 +247,16 @@
         </footer>
 
         <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+        <script src="{{STATIC_URL}}js/vendor/unslider.min.js"></script>
 
         <script src="{{STATIC_URL}}js/main.js"></script>
+        <script>
+        $(function() {
+            $('.banner').unslider({
+                speed:400,
+                dots:true,
+            });
+        });
+        </script>
     </body>
 </html>

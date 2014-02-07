@@ -8,14 +8,23 @@
                 <div class="container">
                     <div class="row app_margen">
                         <div class="col-xs-8">
-                            <img src="{{STATIC_URL}}img/slider.png" class="img-responsive">
+
+                            <div class="banner">
+                                <ul>
+                                    <li style="background-image:url({{STATIC_URL}}img/slider1.png);"></li>
+                                    <li style="background-image:url({{STATIC_URL}}img/slider2.png);"></li>
+                                    <li style="background-image:url({{STATIC_URL}}img/slider3.png);"></li>
+                                </ul>
+                            </div>
+                            
+
                         </div>
                         <div class="col-xs-4">
-                            <div class="centrar">
-                                <div class="img-thumbnail">
+                            <div>
+                                <div class="img-thumbnail centrar">
                                     <div class="app_margen1">
-                                        <h4>Recibe nuestras ofertas</h4>
-                                        <h2>Déjanos tu email!!!</h2>
+                                        <span>Recibe nuestras ofertas</span>
+                                        <p class="app-correo" >Déjanos tu email!!!</p>
                                     </div>
                                     <form class="app_margen1">
                                         <input type="email" name="miemail" id="miemail" placeholder="email" class="app_input">
@@ -27,20 +36,21 @@
                     </div>
                 </div>
             </section>
+            
             <section class="app_lista1">
                 <div class="container">
                     <div class="row app_margen">
                         {% for i in productos  %}
                         <div class="col-xs-3">
                             <div class="img-thumbnail app_padding">
-                                <div class="app_alinear">
-                                    <h5>{{i.nombre}}</h5>
+                                <div class="app_alinear nombre">
+                                    <span>{{i.nombre}}</span>
                                 </div>
                                 <img src="{{MEDIA_URL}}{{i.img}}" class="img-responsive">
-                                <div class="app_alinear app_centrar">
-                                    <h5>{{i.precio}} </h5>
+                                <div class="app_alinear color3">
+                                    <span class="app-precio"><span>S/. </span>{{i.precio}} </span>
+                                    <span class="app-detalle"><a href="/productos/{{i.id}}">ver detalle </a></span>
                                 </div>
-                                <a href="/productos/{{i.id}}">Ver detalle</a>
                             </div>
                         </div>                       
                         {% endfor %}
@@ -106,14 +116,14 @@
                     {% for y in x  %}
                         <div class="col-xs-3">
                             <div class="img-thumbnail app_padding">
-                                <div class="app_alinear">
-                                     <h5>{{y.nombre}}</h5>
+                                <div class="app_alinear nombre">
+                                     <span>{{y.nombre}}</span>
                                 </div>
                                 <img src="{{STATIC_URL}}img/productos.png" class="img-responsive">
-                                <div class="app_alinear app_centrar">
-                                     <h5>{{y.precio}} </h5>
+                                <div class="app_alinear detalle">
+                                    <span class="app-precio"><span>S/. </span>{{y.precio}}</span>
+                                    <span class="app-detalle"><a href="/productos/{{y.id}}">ver detalle </a></span>
                                 </div>
-                                <a href="/productos/{{y.id}}">Ver detalle</a>
                             </div>
                         </div>
                     {% endfor %}
@@ -169,37 +179,37 @@
 
     function mostrarProductos(){
         var info = $(this);
- -            var id = info.attr('id');
- -            console.log(id);
- -            $.ajax({
- -            url: "/ajax/ver_subcategoria/",
- -            type: "POST",
- -            data:{'id':id},
- -            success: function(data) {
- -                html = "";
- -                console.log(data);
- -                for(i=0;i< data.length;i++){
- -                    html += "<div class='caja' id ='"+data[i].pk+"'>";
- -                    html += '<p>' + data[i].fields.nombre +'</p>';
- -                    html += '<p>' + data[i].fields.precio+ '</p>';
- -                    html += "<img src='{{MEDIA_URL}}"+data[i].fields.img+"'>";  
- -                    html += "<div class='sub_registro'>";
- -                    html += "<input type='text' class='cantidad'>";
- -                    html += "<input type='submit' value='Comprar' class='btn btn-primary btn-xs compra'>";
- -                    html += "</div>";
- -                    html += "</div>";
- -                }
- -                
- -                $(".caja_padre").html(html);
- -                
- -            },
- -
- -            error: function(data){
- -                    console.log(data);
- -            }
- -          });
- -        }
- -
- -        </script>
+             var id = info.attr('id');
+             console.log(id);
+             $.ajax({
+             url: "/ajax/ver_subcategoria/",
+             type: "POST",
+             data:{'id':id},
+             success: function(data) {
+                 html = "";
+                 console.log(data);
+                 for(i=0;i< data.length;i++){
+                     html += "<div class='caja' id ='"+data[i].pk+"'>";
+                     html += '<p>' + data[i].fields.nombre +'</p>';
+                     html += '<p>' + data[i].fields.precio+ '</p>';
+                     html += "<img src='{{MEDIA_URL}}"+data[i].fields.img+"'>";  
+                     html += "<div class='sub_registro'>";
+                     html += "<input type='text' class='cantidad'>";
+                     html += "<input type='submit' value='Comprar' class='btn btn-primary btn-xs compra'>";
+                     html += "</div>";
+                     html += "</div>";
+                 }
+                 
+                 $(".caja_padre").html(html);
+                 
+             },
+ 
+             error: function(data){
+                     console.log(data);
+             }
+           });
+         }
+ 
+         </script>
 
 </script>

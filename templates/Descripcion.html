@@ -4,12 +4,30 @@
 
         <section class="app_descripcion">
             <div class="container">
-                <div class="row">
-                    <div class="col-xs-8">
+                <div class="row app_margen app-caja">
+                    <div class="col-xs-6 app-centrar">
                         <img src="{{STATIC_URL}}img/productos.png" class="img-responsive">
                     </div>
-                    <div class="col-xs-4">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, iure ut odit eligendi eveniet quae distinctio molestias fugit beatae harum ex inventore et aliquid culpa libero dolorem nemo alias nisi.
+                    <div class="col-xs-6">
+                        <div>
+                            <span class="app-size1">Cuadernos Standford</span><br>
+                            <span class="app-size2">Stock: 21</span><br>
+                            <span class="app-size3">s/. 7.00</span>
+                            <p class="app-size4">Descripción</p><hr>
+                            <span>Color:Rojo</span><br>
+                            <span>Tipo: Cuadriculado</span><br>
+                            <span>Contenido: 100 hojas</span>
+                        </div>
+                        <div class="app-orientar">
+                            <form action="">
+                                <div class="app-div1">
+                                    <input type="text" name="cantidad" id="cantidad" class="app_cantidad">
+                                </div>
+                                <div class="app-div2">
+                                    <input type="submit" name="agregar" id="agregar" value="Agregar" class="app_agregar">
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

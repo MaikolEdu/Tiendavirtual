@@ -5,7 +5,32 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 import json
 
+from cart import Cart
 
+# Carrito de compras
+
+def ajax_carrito(request):
+	producto_id=request.POST["producto_id"]
+	cantidad = request.POST["cantidad"]	
+	product = producto.objects.get(id=producto_id)
+	cart = Cart(request)
+	cart.add(product, product.precio, cantidad)
+	return HttpResponse(1)
+
+def ajax_eliminaritem(request):
+	product_id=request.POST["item_id"]
+ 	product = producto.objects.get(id=product_id)
+ 	cart = Cart(request)
+ 	cart.remove(product)
+ 	total_carrito =cart.total_cart
+ 	print total_carrito
+ 	return HttpResponse(total_carrito)
+
+
+def get_cart(request):
+    return render_to_response('cart.html', dict(cart=Cart(request)), context_instance=RequestContext(request))
+
+#####
 
 def inicio(request):
 	productos = Producto.objects.order_by('-id')[:4]

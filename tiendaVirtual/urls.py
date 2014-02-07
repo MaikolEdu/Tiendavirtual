@@ -23,6 +23,11 @@ urlpatterns = patterns('',
 
     url(r'^ajax/ver_subcategoria/$', 'app.principal.views.ajax_ver_subcategorias'),
 
+    #carrito
+    url(r'^ajax_carrito/$', 'app.principal.views.ajax_carrito'),
+    url(r'^ajax_eliminaritem/$', 'app.principal.views.ajax_eliminaritem'),
+    url(r'^vercarrito/$', 'app.principal.views.get_cart'),
+
 )
 
 

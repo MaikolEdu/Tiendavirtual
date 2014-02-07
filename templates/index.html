@@ -8,6 +8,7 @@
                 <div class="container">
                     <div class="row app_margen">
                         <div class="col-xs-8">
+
                             <div class="banner">
                                 <ul>
                                     <li style="background-image:url({{STATIC_URL}}img/slider1.png);"></li>
@@ -16,6 +17,8 @@
                                 </ul>
                             </div>
                             
+                            <img src="{{STATIC_URL}}img/slider.png" class="img-responsive">
+
                         </div>
                         <div class="col-xs-4">
                             <div>
@@ -34,6 +37,7 @@
                     </div>
                 </div>
             </section>
+            
             <section class="app_lista1">
                 <div class="container">
                     <div class="row app_margen">
@@ -45,7 +49,7 @@
                                 </div>
                                 <img src="{{MEDIA_URL}}{{i.img}}" class="img-responsive">
                                 <div class="app_alinear color3">
-                                    <span class="app-precio">{{i.precio}} </span>
+                                    <span class="app-precio"><span>S/. </span>{{i.precio}} </span>
                                     <span class="app-detalle"><a href="/productos/{{i.id}}">ver detalle </a></span>
                                 </div>
                             </div>
@@ -118,7 +122,7 @@
                                 </div>
                                 <img src="{{STATIC_URL}}img/productos.png" class="img-responsive">
                                 <div class="app_alinear detalle">
-                                    <span class="app-precio">{{y.precio}}</span>
+                                    <span class="app-precio"><span>S/. </span>{{y.precio}}</span>
                                     <span class="app-detalle"><a href="/productos/{{y.id}}">ver detalle </a></span>
                                 </div>
                             </div>

@@ -76,6 +76,7 @@ textarea {
   float: right;
   padding-right: 5px;
   font-size: 14px;
+  margin-top: 2px;
 }
 .detalle
 {
@@ -289,7 +290,7 @@ ul
 /*-----section mas vendidos------*/
 .app_lista1
 {
-    background: #ECF0f1;
+    background: #CDD0D1;
 }
 h5
 {

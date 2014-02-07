@@ -129,3 +129,77 @@
         
 
     
+
+
+
+
+<script>
+    $(document).on("ready", setup);
+    $(document).on("ready", inicio);
+    function setup(){
+    $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                function getCookie(name) {
+                var cookieValue = null;
+                if (document.cookie && document.cookie != '') {
+                    var cookies = document.cookie.split(';');
+                    for (var i = 0; i < cookies.length; i++) {
+                        var cookie = jQuery.trim(cookies[i]);
+                        // Does this cookie string begin with the name we want?
+                        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+                }
+                if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                // Only send the token to relative URLs i.e. locally.
+                    xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+                    }
+                }
+              });
+            }
+
+    function inicio(){
+        $(".sub").on('click', mostrarProductos);
+        // $(".eliminar").on('click', mostrarProductos);
+    }
+
+    function mostrarProductos(){
+        var info = $(this);
+ -            var id = info.attr('id');
+ -            console.log(id);
+ -            $.ajax({
+ -            url: "/ajax/ver_subcategoria/",
+ -            type: "POST",
+ -            data:{'id':id},
+ -            success: function(data) {
+ -                html = "";
+ -                console.log(data);
+ -                for(i=0;i< data.length;i++){
+ -                    html += "<div class='caja' id ='"+data[i].pk+"'>";
+ -                    html += '<p>' + data[i].fields.nombre +'</p>';
+ -                    html += '<p>' + data[i].fields.precio+ '</p>';
+ -                    html += "<img src='{{MEDIA_URL}}"+data[i].fields.img+"'>";  
+ -                    html += "<div class='sub_registro'>";
+ -                    html += "<input type='text' class='cantidad'>";
+ -                    html += "<input type='submit' value='Comprar' class='btn btn-primary btn-xs compra'>";
+ -                    html += "</div>";
+ -                    html += "</div>";
+ -                }
+ -                
+ -                $(".caja_padre").html(html);
+ -                
+ -            },
+ -
+ -            error: function(data){
+ -                    console.log(data);
+ -            }
+ -          });
+ -        }
+ -
+ -        </script>
+
+</script>

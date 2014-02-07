@@ -22,6 +22,8 @@ urlpatterns = patterns('',
     url(r'^ajax/ver_subcategoria/$', 'app.principal.views.ajax_ver_subcategorias'),
     url(r'^productos/(?P<id_producto>\d+)$', 'app.principal.views.ver_detalle'),
 
+    url(r'^ajax/suscribirse/$','app.principal.views.ajax_registar_suscripcion'),
+
 )
 
 

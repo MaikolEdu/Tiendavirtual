@@ -4,7 +4,6 @@ from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 import json
-
 from cart import Cart
 
 # Carrito de compras
@@ -12,30 +11,41 @@ from cart import Cart
 def ajax_carrito(request):
 	producto_id=request.POST["producto_id"]
 	cantidad = request.POST["cantidad"]	
-	product = producto.objects.get(id=producto_id)
+	product = Producto.objects.get(id=producto_id)
 	cart = Cart(request)
 	cart.add(product, product.precio, cantidad)
-	return HttpResponse(1)
+	ultimo_item=dict(cart=Cart(request))
+	for item in ultimo_item:
+		print str(item.product.nombre)
+	return HttpResponse(ultimo_item)
 
 def ajax_eliminaritem(request):
 	product_id=request.POST["item_id"]
- 	product = producto.objects.get(id=product_id)
+ 	product = Producto.objects.get(id=product_id)
  	cart = Cart(request)
  	cart.remove(product)
  	total_carrito =cart.total_cart
  	print total_carrito
  	return HttpResponse(total_carrito)
 
-
-def get_cart(request):
-    return render_to_response('cart.html', dict(cart=Cart(request)), context_instance=RequestContext(request))
-
 #####
 
 def inicio(request):
 	productos = Producto.objects.order_by('-id')[:4]
-	catsubcat = Categoria.objects.order_by('id')[:3]
-	return render_to_response('index.html',{'productos':productos}, context_instance=RequestContext(request))
+	productoss = Producto.objects.order_by('?')[:10]
+	data = []
+	datos = []
+	for x in productoss:
+		data.append({
+			'nombre':x.nombre,
+			'img':x.img,
+			'precio':x.precio,
+			'id':x.id
+			})
+	datos.append(data[:4])
+	datos.append(data[4:8])
+	datos.append(data[8:10])
+	return render_to_response('index.html',{'productos':productos, 'otros':datos}, context_instance=RequestContext(request))
 
 
 def utiles_escolares(request):
@@ -54,8 +64,8 @@ def utiles_escolares(request):
 			'categoria' : i.nombre,
 			'sub' : sub
 			})
-	productos =  Producto.objects.filter(categoriasubcategoria__id = subcategorias[0].id).values('nombre','stock','img','precio') 
-	return render_to_response('utiles_escolares.html',{'datos':datos,'productos':productos}, context_instance=RequestContext(request))	
+	#productos =  Producto.objects.filter(categoriasubcategoria__id = subcategorias[0].id).values('nombre','stock','img','precio') 
+	return render_to_response('Productos.html',{'datos':datos}, context_instance=RequestContext(request))	
 
 
 def ajax_ver_subcategorias(request):
@@ -65,15 +75,7 @@ def ajax_ver_subcategorias(request):
 			data = serializers.serialize('json', productos,fields = ( 'pk','nombre','stock','precio','img'))
 			return HttpResponse(data , mimetype="application/json")
 
-
-"""
-# def ajax_ver_productos(request):
-# 	if request.is_ajax():
-# 		if request.method=="POST":
-# 			pk=request.POST['id']
-# 			subcategorias = CategoriaSubCategoria.objects.filter(categoria__id = pk)
-# 			data = serializers.serialize('json', subcategorias)
-# 			print data
-# 			return HttpResponse(data , mimetype="application/json")
-"""
+def ver_detalle(request,id_producto):
+	producto = Producto.objects.get(id=id_producto)
+	return render_to_response('Descripcion.html', {'producto':producto}, context_instance=RequestContext(request))
 

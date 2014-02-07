@@ -1,179 +1,133 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+{% extends "base.html" %}
 
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-        <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.min.css">
-        <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.css">
-        <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
+{% block title %}La Empresa{% endblock %}
 
-        <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.2.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+        {% block content %}
 
-        <header class="app_header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-8">
-                        <h1 class="title">La Empresa</h1>
-                    </div>
-                    <div class="col-xs-2 col-xs-3-sinpadding">
-                        <div class="app_img">
-                            <a href=""><img src="{{STATIC_URL}}img/Facebook.png"></a>
-                            <a href=""><img src="{{STATIC_URL}}img/Google-Plus.png"></a>
-                            <a href=""><img src="{{STATIC_URL}}img/Twitter-Bird.png"></a>
+            <section class="app_slider">
+                <div class="container">
+                    <div class="row app_margen">
+                        <div class="col-xs-8">
+                            <img src="{{STATIC_URL}}img/slider.png" class="img-responsive">
                         </div>
-                    </div>
-                    <div class="col-xs-2 col-xs-3-sinpadding">
-                        <div class="app_carrito">
-                            <img src="{{STATIC_URL}}img/Carrito.png">
-                            <span>
-                                <a href="/vercarrito">(0) Carrito</a>
-                            </span>
+
+                        <div class="col-xs-4">
+                            <div class="centrar">
+                                <div class="img-thumbnail">
+                                    <div class="app_margen1">
+                                        <h4>Recibe nuestras ofertas</h4>
+                                        <h2>Déjanos tu email!!!</h2>
+                                    </div>
+                                    <form class="app_margen1">
+                                        <input type="email" name="miemail" id="miemail" placeholder="email" class="app_input">
+                                        <input type="submit" value="Enviar" class="btn btn-primary">
+                                    </form>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-            </div>
-        </header>
-
-        <nav class="app_nav">
-            <div class="container">
-                <ul class="app_ul">
-                    <a href="#"><li>La Empresa</li></a>
-                    <a href="/utiles_escolares"><li>Utiles Escolares</li></a>
-                    <a href="/utiles_escolares"><li>Utiles de Oficina</li></a>
-                    <a href="/utiles_escolares"><li>Regalos</li></a>
-                    <a href="#"><li>Contáctenos</li></a>
-                </ul>
-            </div>
-        </nav>
-
-        <section class="container">
-
-            <div id="miSlide" class="app_margen carousel slide">
-                    <ol class="carousel-indicators">
-                        <li data-target="#miSlide" data-slide-to="0" class="active"></li>
-                        <li data-target="#miSlide" data-slide-to="1"></li>
-                        <li data-target="#miSlide" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="{{STATIC_URL}}img/slider1.png" class="adaptar">
-                        </div>
-                        <div class="item">
-                            <img src="{{STATIC_URL}}img/slider2.png" class="adaptar">
-                        </div>
-                        <div class="item">
-                            <img src="{{STATIC_URL}}img/slider3.jpg" class="adaptar">
-                        </div>
+            </section>
+            <section class="app_lista1">
+                <div class="container">
+                    <div class="row app_margen">
+                        {% for i in productos  %}
+                        <div class="col-xs-3">
+                            <div class="img-thumbnail app_padding">
+                                <div class="app_alinear">
+                                    <h5>{{i.nombre}}</h5>
+                                </div>
+                                <img src="{{MEDIA_URL}}{{i.img}}" class="img-responsive">
+                                <div class="app_alinear app_centrar">
+                                    <h5>{{i.precio}} </h5>
+                                </div>
+                                <a href="/productos/{{i.id}}">Ver detalle</a>
+                            </div>
+                        </div>                       
+                        {% endfor %}
                     </div>
-                    <a href="#miSlide" class="left carousel-control" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-                    <a href="#miSlide" class="right carousel-control" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
+                </div>   
+            </section>
 
-            <div class="app_login app_margen">
-                <div class="row">
-                    <div class="col-xs-9">
-                        <div class="row">
-                            {%for elemento in productos %}
 
-                            <div class="col-xs-3"><img src="{{MEDIA_URL}}{{elemento.img}}"class="thumbnail"></div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="thumbnail color">
-                            <h4 class="app_text">Iniciar Sesión</h4>
-                            <form action="" class="app-separar">
-                                <div class="app-button">
-                                    <input type="text" name="username" class="form-control app_margenform" placeholder="Usuario">
-                                    <input type="password" name="password" class="form-control app_margenform" placeholder="Contraseña">
-                                    <div class="app_margenform">
-                                        <span>
-                                            <input type="submit" value="Ingresar" class="btn btn-primary">
-                                            <span class="app-tam">
-                                                <a href="#" class="margen">Registrar</a>
-                                                <a href="#" class="margen">Olvide Contraseña</a>
-                                            </span>
-                                        </span>
+
+            <section class="app_envios">
+                <div class="container">
+                    <div class="row app_margen">
+                        <div class="col-xs-4">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <div class="app_font3">
+                                        <span class="icon-truck"></span>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="app_envios app_header app_margen">
-                <div class="row">
-                    <!--<img src="img/banner-home-gris.jpg">-->                    
-                    <div class="col-xs-4">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <div class="app_tam"><img src="{{STATIC_URL}}img/Credito.png" class="img-responsive"></div>
-                            </div>
-                            <div class="col-xs-9 txt">
-                                <div class="txt">
-                                    <h3>¿Me lo Envian?</h3>
-                                    <p>Si!! hacemos envios a todo Trujillo. Muy pronto a nivel Nacional </p>
+                                <div class="col-xs-9">
+                                    <h3>¿Me lo envian?</h3>
+                                    <p>Si!! hacemos envios a todo Trujillo. Muy pronto a nivel Nacional</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xs-4">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <div class="app_tam"><img src="{{STATIC_URL}}img/Credito.png" class="img-responsive"></div>
-                            </div>
-                            <div class="col-xs-9 txt">
-                                <div>
+                        <div class="col-xs-4">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <div class="app_font3">
+                                        <span class="icon-credit"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-9">
                                     <h3>¿Cómo Pago?</h3>
                                     <p>Paga con cualquier tarjeta de credito o débito. Compras 100% seguras!.</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xs-4">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <div class="app_tam"><img src="{{STATIC_URL}}img/Credito.png" class="img-responsive"></div>
-                            </div>
-                            <div class="col-xs-9 txt">
-                                <div>
+                        <div class="col-xs-4">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <div class="app_font3">
+                                        <span class="icon-mail2"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-9">
                                     <h3>¿Me Ayudan?</h3>
-                                    <p>Contáctanos enviando un mensaje al correo hola@empresa.com o llamando al 945799754.</p>
+                                    <p>Contáctanos enviando un mensaje al correo hola@empresa.com</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        <footer class="app_footer">
-            <div class="container">
-                <div class="row">
-                    <h5 class="app-colorf">Derechos Reservados @Qaysen</h5>
+            </section>
+
+
+
+<!-- Iteracion de productos de forma aleatoria    -->
+            <section class="app_lista2">
+                <div class="container">
+                {% for x in otros %}
+                    <div class="row app_margen">
+                    {% for y in x  %}
+                        <div class="col-xs-3">
+                            <div class="img-thumbnail app_padding">
+                                <div class="app_alinear">
+                                     <h5>{{y.nombre}}</h5>
+                                </div>
+                                <img src="{{STATIC_URL}}img/productos.png" class="img-responsive">
+                                <div class="app_alinear app_centrar">
+                                     <h5>{{y.precio}} </h5>
+                                </div>
+                                <a href="/productos/{{y.id}}">Ver detalle</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>           
+                {% endfor %}
                 </div>
-            </div>
-        </footer>
+            </section>
 
-        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
-        <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
-        <script src="{{STATIC_URL}}js/vendor/bootstrap.min.js"></script>
-        <script src="{{STATIC_URL}}js/main.js"></script>
+<!-- *********************************************    -->
 
+        {% endblock %}
 
-    </body>
-</html>
+        
+
+    

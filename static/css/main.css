@@ -11,9 +11,8 @@ textarea {
 }
 
 body {
-    font-size: 14px;
+    font-size: 1em;
     line-height: 1.4;
-    overflow-x:hidden;
 }
 
 ::-moz-selection {
@@ -60,147 +59,426 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-/*CSS para Header*/
-.app_header
-{
-    background: #F7F9F9;
-}
-.title
-{
-    margin: 5px;
-    font-size: 50px;
-    font-family: 'Tangerine', serif;
-    text-shadow: 4px 4px 4px #aaa;
-}
-.app_img
-{
-    width: 85px;
-    margin-top: 25px;
-    float: right;
-}
 
-.app_carrito
+/*-------Uso General--------*/
+.color1
 {
-    width: 110px;
-    margin-top: 25px;
-    float: right;
-}
-
-.col-xs-3-sinpadding
-{
-    padding-left: 0;
-    padding-right: 0;
-}
-/********************/
-
-
-/*CSS para Barra de Navegacion*/
-
-ul
-{
-    margin: 0;
-    padding: 0;
-}
-.app_nav
-{
-    background: #333;
-}
-.app_ul li
-{
-    display: inline-block;
-    margin: 0 auto;
-    padding: 15px;
-    color: #999;
-}
-
-.app_ul li:hover
-{
-    color: white;
-}
-
-/*Solo modifico el primer elemento(1)*/
-.app_ul a:nth-child(1)
-{
-    font-size: 18px;
-}
-
-/********************/
-/*Slider*/
-.adaptar
-{
-    width: 100%;
+  background: red;
 }
 .app_margen
 {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-/*********/
+/*-------------------------*/
 
-/*Formulario*/
+/*------Header------*/
+.app_title
+{
+    margin: 5px;
+    font-size: 50px; 
+    font-family: 'Tangerine', serif;
+    text-shadow: 4px 4px 4px #aaa;
+}
+.app_header
+{
+    background: white;
+    border-top: 6px solid #eceef1;
+}
+.app_logo
+{
+    width: 300px;
+}
+.app_font1
+{
+    font-size: 20px;
+    margin-top: 30px;
+    float: right;
+    width: 80px;
+}
+.app_font2
+{
+    margin-top: 30px;
+    float: left;
+    width: 150px;
+}
+.app_size
+{
+    font-size: 20px;
+}
+a:link
+{
+  text-decoration: none;
+}
+.app_link
+{
+  color: black;
+}
 
-.app_text
+/*------------------*/
+
+
+
+
+/*------Barra de Navegación------*/
+.app_nav
+{
+   background: #0e7ac4;
+   /*background: white;*/
+}
+
+/***********************************/
+/***************Mayra***************/
+/***********************************/
+ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+.app_ul li
+{
+    display: inline-block;
+    list-style-type: none;
+    margin: 10px 40px;
+    height: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+.app_ul li .linea_nav{
+
+    background-color: white;
+    /*background: #cccccc;*/
+    width: 97%;
+    margin: 0 auto 15px;
+    height: 6px;
+}
+
+.app_ul li a{
+    letter-spacing: 2px;
+    font-weight: 500;
+    cursor: pointer;
+    color: white;
+    /*color: #cccccc;*/
+    font-family: 'Duru Sans', sans-serif;
+    text-decoration: none;
+}
+
+/* Efectos de Pestañas de navegacion*/
+
+
+/***********************************/
+/***********************************/
+/***********************************/
+
+
+
+
+
+
+
+
+/*-------------Slider------------*/
+.app_slider
+{
+    background: #3498DB;
+}
+.centrar
+{
+    margin:15px auto;
+}
+.app_margen1
+{
+    margin: 20px 53px;
+}
+.app_input
+{
+    display: block;
+    border: 1px solid #D2D4D6;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 5px;
+    font-size: 18px;
+}
+
+/****************************/
+/*Copy Paste Bootstrap u.U*/
+/****************************/
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+.btn-primary:hover
+{
+  color: #ffffff;
+  background-color: #3276b1;
+  border-color: #285e8e;
+}
+.btn-primary {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+/****************************/
+/****************************/
+
+/*------------------*/
+
+
+/*-----section mas vendidos------*/
+.app_lista1
+{
+    background: #ECF0f1;
+}
+h5
+{
+    margin: 0;
+}
+.app_centrar
 {
     text-align: center;
 }
-.app-button
+.app_padding
 {
-    margin-bottom: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
-.app_margenform
+/*------------------*/
+
+/*-----section envios------*/
+.app_envios
 {
-    margin-top: 10px;
+    background: #ECF0f1;
 }
-.app-separar
+.app_font3
 {
-    margin-right: 10px;
-    margin-left: 10px;
-}
-.app-tam
-{
-    font-size: 11px;
-}
-.margen
-{
-    margin: 0 3px;
+    font-size: 45px;
+    margin-top: 30px;
 }
 
-/***************/
+/*-------------------------*/
 
-/*Seccion Envios*/
-.color
-{
-    background: #DCDEDE;
-}
-.app_tam
-{
-    margin-top: 25px;
-}
-.txt
-{
-    text-align: justify;
-}
-
-/***************/
-
+/*-----Footer------*/
 .app_footer
 {
-    background: black;
-}
-.app-colorf
-{
+    background: #0e7ac4;
+    font-family: "Avenir", Futura, Helvetica, sans-serif;
     color: white;
-    text-align: center;
+    letter-spacing: 2px;
+}
+/*-------------------------*/
+
+
+/*********************************************************/
+/************************Productos************************/
+.app-div1
+{
+  width: 45px;
+  display: inline-block;
+  margin-right: 18px;
+}
+.app-div2
+{
+  width: 70px;
+  display: inline-block;
+}
+.app_cantidad
+{
+  width: 100%;
+  border-radius: 6px;
+}
+.app_agregar
+{
+  width: 100%;
+  border-radius: 6px;
+  display: inline-block;
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
 }
 
 
 
+/* ================= Modal ================ */
+
+#enlace_modal{
+  cursor: pointer;
+}
+
+#modal{
+  width: 100%;
+  height: 1050px;
+  position: absolute;
+  background-color: rgba(14, 14, 1, 0.75);
+  top: 0;
+  display: none;
+}
+
+#modal_content{
+  background-color: white;
+  position: relative;
+  height: 550px;
+  width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  -webkit-box-shadow: 0px 0px 48px 19px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 48px 19px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 48px 19px rgba(0,0,0,0.75);
+  border-radius: 4px;
+}
+
+#mcontent_true{
+  margin-top: 20px;
+  top: 20px;
+  width: 860px;
+  height: 510px;
+  position: relative;
+  border: 1px solid rgb(198, 199, 218);
+  border-radius: 4px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#mcontent_true h3{
+  text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.table_first,
+.table_second,
+.table_third,
+.table_fourth,
+.table_fifth,
+.table_sixth{
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+}
 
 
+.table_first{
+  width: 40px; 
+}
 
+.table_second{
+  width: 330px;
+}
 
+.table_third{
+  width: 100px;
+}
 
+.table_fourth{
+  width: 150px;
+}
 
+.table_fifth{
+  width: 150px;
+}
+
+.table_sixth{
+  width: 50px;
+}
+
+#table_mcontent th{
+  background-color: #000;
+  color: white;
+}
+
+#table_mcontent tr{
+  border-bottom: 3px solid rgba(161, 165, 182, 0.21);
+}
+
+#table_mcontent tr:first-child{
+  border-bottom: none;
+}
+
+.boton_edit{
+  background-color: rgb(229, 224, 86);
+  border: 1px solid rgb(168, 179, 165);
+  margin-left: 10px;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+#input_edit{
+  width: 50px;
+  height: 30px;
+  border-radius: 2px;
+  border: 1px solid rgb(168, 179, 165);
+  display: none;
+}
+
+.letter_table{
+  width: 40px;
+  padding-left: 10px;
+}
+
+/* ======================================== */
+.app-caja
+{
+  height: 373px;
+}
+.app-centrar
+{
+  padding-left: 150px;
+}
+.app-size1
+{
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Duru Sans', sans-serif;
+}
+.app-size2
+{
+  font-size: 15px;
+  color: #555;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Duru Sans', sans-serif;
+}
+.app-size3
+{
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Duru Sans', sans-serif;
+  color: #0e7ac4;
+}
+.app-size4
+{
+  letter-spacing: 2px;
+  font-family: 'Duru Sans', sans-serif;
+  text-transform: uppercase;
+  color: #0e7ac4;
+}
+.app-orientar
+{
+  float: right;
+}
 
 
 

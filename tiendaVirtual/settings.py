@@ -162,3 +162,9 @@ LOGGING = {
         },
     }
 }
+
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (           
+    'app.principal.contexto.carrito',
+)

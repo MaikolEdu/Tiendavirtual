@@ -15,7 +15,9 @@
         <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.min.css">
         <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
         <link rel="stylesheet" href="{{STATIC_URL}}css/fonts.css">
+        <link rel="stylesheet" href="{{STATIC_URL}}css/modal.css">
         <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.2.min.js"></script>
+
         {% block estilos %}{% endblock %}
     </head>
     <body>
@@ -85,6 +87,7 @@
 
 		{% endblock %}
 		
+        <!--////////////////// Modal -> Jhon Medina /////////////////-->
         <div id="modal">
         	<div id="modal_content">
 				<div id="mcontent_true">
@@ -120,7 +123,6 @@
                                 <button class="boton_delete"><img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px"></button>
                             </td>
 						</tr>
-
                         <tr>
                             <td class="table_first">
                                 1
@@ -143,7 +145,6 @@
                                 <button class="boton_delete"><img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px"></button>
                             </td>
                         </tr>
-
                         <tr>
                             <td class="table_first">
                                 1
@@ -166,10 +167,78 @@
                                 <button class="boton_delete"><img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px"></button>
                             </td>
                         </tr>
+                        <tr>
+                            <td class="table_first">
+                                1
+                            </td>
+                            <td class="table_second">
+                                <img src="{{STATIC_URL}}img/Producto1.png" alt="" width="50px" height="50px">
+                                <span class="letter_table">Lapiceros - Marca Pilot</span> 
+                            </td>
+                            <td class="table_third">                                    
+                                <select>
+                                  <option value="uno">1</option>
+                                  <option value="dos">2</option>
+                                  <option value="tres">3</option>
+                                  <option value="cuatro">4</option>
+                                </select>
+                            </td>
+                            <td class="table_fourth">S/. 1.50</td>
+                            <td class="table_fifth">S/. 6.00</td>
+                            <td class="table_sixth">
+                                <button class="boton_delete"><img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="table_first">
+                                1
+                            </td>
+                            <td class="table_second">
+                                <img src="{{STATIC_URL}}img/Producto1.png" alt="" width="50px" height="50px">
+                                <span class="letter_table">Lapiceros - Marca Pilot</span> 
+                            </td>
+                            <td class="table_third">                                    
+                                <select>
+                                  <option value="uno">1</option>
+                                  <option value="dos">2</option>
+                                  <option value="tres">3</option>
+                                  <option value="cuatro">4</option>
+                                </select>
+                            </td>
+                            <td class="table_fourth">S/. 1.50</td>
+                            <td class="table_fifth">S/. 6.00</td>
+                            <td class="table_sixth">
+                                <button class="boton_delete"><img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="table_first">
+                                1
+                            </td>
+                            <td class="table_second">
+                                <img src="{{STATIC_URL}}img/Producto1.png" alt="" width="50px" height="50px">
+                                <span class="letter_table">Lapiceros - Marca Pilot</span> 
+                            </td>
+                            <td class="table_third">                                    
+                                <select>
+                                  <option value="uno">1</option>
+                                  <option value="dos">2</option>
+                                  <option value="tres">3</option>
+                                  <option value="cuatro">4</option>
+                                </select>
+                            </td>
+                            <td class="table_fourth">S/. 1.50</td>
+                            <td class="table_fifth">S/. 6.00</td>
+                            <td class="table_sixth">
+                                <button class="boton_delete"><img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px"></button>
+                            </td>
+                        </tr>
+                       
 					</table>
 				</div>
         	</div>
         </div>
+        <!--///////////////////////////////////////////////////////-->
 
         <footer class="app_footer">
             <div class="container">
@@ -178,7 +247,16 @@
         </footer>
 
         <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+        <script src="{{STATIC_URL}}js/vendor/unslider.min.js"></script>
 
         <script src="{{STATIC_URL}}js/main.js"></script>
+        <script>
+        $(function() {
+            $('.banner').unslider({
+                speed:400,
+                dots:true,
+            });
+        });
+        </script>
     </body>
 </html>

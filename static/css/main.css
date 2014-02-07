@@ -61,9 +61,29 @@ textarea {
    ========================================================================== */
 
 /*-------Uso General--------*/
-.color1
+.color
 {
-  background: red;
+  background: blue;
+}
+.app-precio
+{
+  float: left;
+  padding-left:  5px;
+  font-size: 18px;
+}
+.app-detalle
+{
+  float: right;
+  padding-right: 5px;
+  font-size: 14px;
+}
+.detalle
+{
+  margin-top: 5px;
+}
+.nombre
+{
+  padding-bottom: 5px;
 }
 .app_margen
 {
@@ -165,19 +185,6 @@ ul
     text-decoration: none;
 }
 
-/* Efectos de Pestañas de navegacion*/
-
-
-/***********************************/
-/***********************************/
-/***********************************/
-
-
-
-
-
-
-
 
 /*-------------Slider------------*/
 .app_slider
@@ -186,7 +193,8 @@ ul
 }
 .centrar
 {
-    margin:15px auto;
+    padding-top: 27px;
+    padding-bottom: 27px;
 }
 .app_margen1
 {
@@ -201,6 +209,13 @@ ul
     width: 100%;
     padding: 5px;
     font-size: 18px;
+}
+.app-correo
+{
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Duru Sans', sans-serif;
 }
 
 /****************************/
@@ -437,13 +452,13 @@ h5
 }
 
 /* ======================================== */
-.app-caja
-{
-  height: 373px;
-}
 .app-centrar
 {
   padding-left: 150px;
+}
+.app-caja
+{
+  height: 420px;
 }
 .app-size1
 {

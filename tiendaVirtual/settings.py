@@ -7,6 +7,17 @@ TEMPLATE_DEBUG = DEBUG
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+# from django.core.exceptions import ImproperlyConfigured
+
+# def get_env_variable(var_name):
+#     try:
+#         return os.environ[var_name]
+#     except KeyError:
+#         error_msg = 'Set the {var_name} environment variable'
+#         raise ImproperlyConfigured(error_msg.format(var_name=var_name))
+
+# #SECRET_KEY = '(odnn$rih5q!q^5jxd@w&h51vp-zu+33fmwjec3r*yacti7#qj'
+# SECRET_KEY = get_env_variable('SECRET_KEY')
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -128,11 +139,20 @@ DJANGO_APPS= (
 
 LOCAL_APPS = (
     'app.principal',
+#    'djrill',
 )
 
 INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
+
+
+
+# # MANDRILL
+# #MANDRILL_API_KEY = "ulkTNRKjNKZZeFQGtlTwuA"
+# MANDRILL_API_KEY = get_env_variable('MANDRILL_API_KEY')
+# EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

@@ -15,7 +15,9 @@
         <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.min.css">
         <link rel="stylesheet" href="{{STATIC_URL}}css/main.css">
         <link rel="stylesheet" href="{{STATIC_URL}}css/fonts.css">
+        <link rel="stylesheet" href="{{STATIC_URL}}css/modal.css">
         <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.2.min.js"></script>
+
         {% block estilos %}{% endblock %}
     </head>
     <body>
@@ -53,7 +55,7 @@
         <!--Barra de Navegacion -->
         <nav class="app_nav">
             <div class="container">
-                <ul class="app_ul app_margen">
+                <ul class="app_ul">
                     <li id="verde">
                       <div>
                         <a href="/">La Empresa</a>
@@ -87,6 +89,7 @@
 
 		{% endblock %}
 		
+        <!--////////////////// Modal -> Jhon Medina /////////////////-->
         <div id="modal">
         	<div id="modal_content">
 				<div id="mcontent_true">
@@ -123,6 +126,7 @@
                                     <img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px">
                                 </button>
                             </td>
+
 						</tr>  
                           {% endfor %}                
 					</table>
@@ -133,6 +137,7 @@
 				</div>
         	</div>
         </div>
+        <!--///////////////////////////////////////////////////////-->
 
         <footer class="app_footer">
             <div class="container">
@@ -141,8 +146,10 @@
         </footer>
 
         <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+        <script src="{{STATIC_URL}}js/vendor/unslider.min.js"></script>
 
         <script src="{{STATIC_URL}}js/main.js"></script>
+
         <script>
             $(document).on("ready", setup);
             $(document).on("ready", inicio);
@@ -205,8 +212,19 @@
         </script>
  
 
-    {% block script %}
-    {% endblock %}
+{% block script %}
+    
+{% endblock script %}
+
+        <script>
+        $(function() {
+            $('.banner').unslider({
+                speed:400,
+                dots:true,
+            });
+        });
+        </script>
+
 
     </body>
 </html>

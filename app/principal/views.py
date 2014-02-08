@@ -1,4 +1,5 @@
 from app.principal.models import Producto,CategoriaSubCategoria,Categoria
+from app.principal.forms import SuscripcionForm
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
@@ -76,6 +77,17 @@ def ajax_ver_subcategorias(request):
 			return HttpResponse(data , mimetype="application/json")
 
 def ver_detalle(request,id_producto):
+
 	producto = Producto.objects.get(id=id_producto)
 	return render_to_response('Descripcion.html', {'producto':producto}, context_instance=RequestContext(request))
 
+def ajax_registar_suscripcion(request):
+	if request.is_ajax():
+		if request.method == 'POST':
+			email = SuscripcionForm(request)
+			if email.is_valid():
+				email.save()
+				dato = True
+	else:
+		dato = False
+	return HttpResponse(dato)

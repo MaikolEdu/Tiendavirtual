@@ -86,3 +86,19 @@ class Producto(models.Model):
 
     def __unicode__(self):
         return unicode(self.nombre)
+
+
+class Ofertas(models.Model):
+    nombre = models.CharField(max_length=200)
+    img = models.FileField(upload_to='imgOfertas/')
+    slug = models.SlugField(max_length=200)
+
+    def __unicode__(self):
+        return unicode(self.nombre)
+
+
+class Suscripciones(models.Model):
+    email = models.EmailField(max_length=200)
+
+    def __unicode__(self):
+        return unicode(self.email)

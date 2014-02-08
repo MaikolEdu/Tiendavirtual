@@ -18,3 +18,6 @@ admin.site.register(SubCategoria, AdminEntries)
 admin.site.register(CategoriaSubCategoria)
 admin.site.register(Valor)
 admin.site.register(Caracteristica)
+admin.site.register(Ofertas)
+admin.site.register(Suscripciones)
+

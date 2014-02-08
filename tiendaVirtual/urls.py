@@ -29,6 +29,9 @@ urlpatterns = patterns('',
     url(r'^ajax_eliminaritem/$', 'app.principal.views.ajax_eliminaritem'),
     url(r'^vercarrito/$', 'app.principal.views.get_cart'),
 
+    url(r'^ajax/suscribirse/$','app.principal.views.ajax_registar_suscripcion'),
+
+
 )
 
 

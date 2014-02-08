@@ -1,5 +1,7 @@
 
-/*********************************/
+/*------- Funcionalidades para el Nav-Aside -> Jhon Medina -------*/
+//Aun falta optimizarlo
+
 $(".list_hija").eq(0).show();
 
 $(".mi").eq(0).on("click", {id:0}, mostrar);
@@ -51,37 +53,39 @@ function mostraricono(event){
       $(".sh").eq(0).hide(250);
    }
 }
+/*------------------------------------------------------------------------*/
 
-/*------------ Funcionalidades para el Modal ------------*/
+/*------------ Funcionalidades para el Modal -> Jhon Medina ------------*/
 
-$('#enlace_modal').on('click', mostrarModal);
-/*$('#modal_content').parent().on('click', ocultarModal);*/
+//--> Mostrar el Modal para el carrito
+$('#enlace_modal').on('click', mostrarModal);    //Click sobre el enlace, llama a función mostrarModal
 
 function mostrarModal(){
-   $('#modal').show();
-   $('body').css({'overflow-y':'hidden'});
+   $('#modal').show();                           //Muestra el modal primera vez
+   $('body').css({'overflow-y':'hidden'});       //Oculta el scroll del navegador
 }
 
-/*function ocultarModal(){
-   $('#modal').hide();
-   $('body').css({'overflow-y':'visible'});
-}*/
+//--> Ocultar el Modal para el carrito
+$('#modal_content').on('mouseleave', {fuera:1}, fueraDentro);
+$('#modal_content').on('mouseenter', {dentro:0}, fueraDentro);
 
-$('.boton_edit').eq(0).on('click', {id:0}, mostrarFormEdit);
-$('.boton_edit').eq(1).on('click', {id:1}, mostrarFormEdit);
-
-
-
-function mostrarFormEdit(event){
-   if(event.data.id==0){
-      $("#input_edit").eq(0).toggle(500);
+function fueraDentro(valor){
+   if(valor.data.fuera==1){                      //Fuera del modal
+      $('#modal').click(function(){              //Al hacer click fuera del modal
+         $(this).hide()                          //Ocultar modal
+         $('body').css({'overflow':'visible'});  //Dejar visible el scroll del navegador
+      });
    }
-   if(event.data.id==1){
-      $("#input_edit").eq(1).toggle(500);
+
+   if(valor.data.dentro==0){                     //Dentro del modal
+      $('#modal').click(function(){              //Al hacer click dentro del modal
+          $(this).show();                        //Dejar mostrado el modal                 
+          $('body').css({'overflow':'hidden'});  //Ocultar el scroll del navegador
+      });
    }
+   
 }
-
-/*-------------------------------------------------------*/
+/*---------------------------------------------------------------------*/
 
 
 

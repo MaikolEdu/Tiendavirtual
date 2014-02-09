@@ -38,6 +38,7 @@ def utiles_escolares(request):
 				})
 		datos.append({
 			'categoria' : i.nombre,
+			'id': i.id,
 			'sub' : sub
 			})
 	#productos =  Producto.objects.filter(categoriasubcategoria__id = subcategorias[0].id).values('nombre','stock','img','precio') 

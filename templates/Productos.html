@@ -6,7 +6,7 @@
 
 {% block title %}Utiles Escolares{% endblock %}
 
-        {% block content %}
+    {% block content %}
 
         <section class="app_productos">
             <div class="container">
@@ -14,10 +14,10 @@
                     
                 <!--*************** Navegación Aside - Jhon M. *****************-->
                     <div class="col-xs-3">
-                        <div class="color">
+                        <div id="navi">  
                             <ul class="list_padre">
                                 {% for i in datos %}
-                                <li class="list"><p class="mi">{{i.categoria}} <span class="glyphicon glyphicon-chevron-right sh"></span></p>
+                                <li class="list"><p class="mi" id='{{i.id}}'>{{i.categoria}} <span class="glyphicon glyphicon-chevron-right sh"></span></p>
                                 <ul class=" list_hija">
                                     {% for j in i.sub %}
                                         <li class = 'sub' id= '{{j.id}}'> {{j.nombre}} </li>
@@ -97,20 +97,44 @@
     function inicio()
     {
         $(".sub").on('click', mostrarProductos);
-        // $(".eliminar").on('click', mostrarProductos);
+        $(".mi").on('click', mostrarCategorias);    //Click sobre categoria, activa funcion mostrarCategoria
+
+        
     }
-    
+
+    /*---- Funciones desplegar subcategorias de cada categoria -> Jhon Medina ----*/
+
+    function mostrarCategorias(){
+        var cat = $(this);                          //Seleccionando el mismo elemento de clase .mi
+        var id_cat = cat.attr('id');                //Obtener el valor de id, de clase .mi
+
+        $('.list_hija').eq(id_cat-1).toggle(500);   //Desplazando la clase .list_hija
+
+        /*var tam=$('.list_hija').eq(id_cat-1).height();
+
+        console.log(tam);
+
+        if(tam>=184){
+            $('.list_hija').eq(id_cat-1).css({'overflow-x':'hidden','height':'240px'});
+            console.log('entre');
+        }*/
+
+    }
+    /*-----------------------------------------------------------------------------*/
+ 
     function mostrarProductos(){
         var info = $(this);
         var id = info.attr('id');
         console.log(id);
+        
+
         $.ajax({
         url: "/ajax/ver_subcategoria/",
         type: "POST",
         data:{'id':id},
         success: function(data) {
             html = "";
-            console.log(data);
+            //console.log(data);
             for(i=0;i< data.length;i++){
                 html += "<div class='col-xs-3'id ='"+data[i].pk+"'>";
                 html += "<div class='img-thumbnail app_padding'>";

@@ -134,6 +134,7 @@ DJANGO_APPS= (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'cart'
 )
 
 LOCAL_APPS = (
@@ -181,3 +182,9 @@ LOGGING = {
         },
     }
 }
+
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (           
+    'app.principal.contexto.carrito',
+)

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title%} producto {{producto.nombre}} {% endblock %}
+
+{% block content %}
+<h1> {{ producto.nombre }} </h1>
+<br>
+<b>Categoria:</b>
+{% for cat in categorias%}
+	 <span class="label label-info">{{ cat.nombre }}</span>
+{% endfor %}
+<br><br>
+<center>
+	<img src="/media/{{ producto.imagen }}" width="350px" heigth="350px" class="img-polaroid">
+	<p> {{producto.descripcion}} </p>
+
+	<p> s/.{{ producto.precio }} </p>
+<!-- {% if producto.stock > 0 %}
+	<form action="/carrito/{{producto.id}}/" method="POST">
+		{% csrf_token %}
+		<input type="text" name="cantidad" >
+		<input type="submit" value="Comprar Producto">
+
+	</form>
+{% endif %}  -->	
+	{% if producto.stock > 0 %}
+	{% csrf_token %}
+		<input type="text" name="cantidad" id="cantidad">
+		<button class="carrito" value="{{producto.id}}">Añadir carrito</button>
+
+    {% endif %} 
+
+
+	<br><br>
+	<a href="javascript:window.history.go(-1);" class="btn btn-primary"><i class="icon-arrow-left icon-white"></i> Regresar a la lista</a>
+</center>
+{% endblock %}
+
+{% block script %}
+<script >
+$(document).on("ready", inicio);
+
+function inicio()
+{
+   $(".carrito").on("click",añadircarrito);
+}
+function añadircarrito()
+{
+    var cantidad = $("#cantidad").val();
+    var producto_id=$(this).val();
+    
+    console.log(cantidad)
+    console.log(producto_id)
+
+      $.ajax({
+        data:{'producto_id':producto_id,'cantidad':cantidad},
+        type:"post",
+        url:'/ajax_carrito/',
+        success: function (data)
+        {
+         console.log(data)
+        }
+      });
+    
+}
+
+
+</script>
+{% endblock %}

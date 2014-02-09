@@ -6,27 +6,31 @@
             <div class="container">
                 <div class="row app_margen app-caja">
                     <div class="col-xs-6 app-centrar">
-                        <img src="{{STATIC_URL}}img/productos.png" class="img-responsive">
+                        <img src="{{STATIC_URL}}{{producto.img}}" class="img-responsive">
+                        {{producto.img}}
                     </div>
                     <div class="col-xs-6">
                         <div>
-                            <span class="app-size1">Cuadernos Standford</span><br>
-                            <span class="app-size2">Stock: 21</span><br>
-                            <span class="app-size3">s/. 7.00</span>
+                            <span class="app-size1">{{producto.nombre}}</span><br>
+                            <span class="app-size2">Stock: {{producto.stock}}</span><br>
+                            <span class="app-size3">s/. {{producto.precio}}</span>
                             <p class="app-size4">Descripción</p><hr>
                             <span>Color:Rojo</span><br>
                             <span>Tipo: Cuadriculado</span><br>
                             <span>Contenido: 100 hojas</span>
                         </div>
                         <div class="app-orientar">
-                            <form action="">
+                            {% if producto.stock > 0 %}
+                                {% csrf_token %}
                                 <div class="app-div1">
                                     <input type="text" name="cantidad" id="cantidad" class="app_cantidad">
                                 </div>
                                 <div class="app-div2">
-                                    <input type="submit" name="agregar" id="agregar" value="Agregar" class="app_agregar">
+                                    <button class="carrito app_agregar" id="agregar" value="{{producto.id}}">Añadir carrito</button>
                                 </div>
-                            </form>
+                            
+                              {% endif %} 
+
                         </div>
                     </div>
                 </div>
@@ -34,4 +38,36 @@
         </section>
 
     {% endblock %}
+
+    {% block script %}
+<script >
+$(document).on("ready", inicio);
+
+function inicio()
+{
+   $(".carrito").on("click",añadircarrito);
+}
+function añadircarrito()
+{
+    var cantidad = $("#cantidad").val();
+    var producto_id=$(this).val();
+    
+    console.log(cantidad)
+    console.log(producto_id)
+
+      $.ajax({
+        data:{'producto_id':producto_id,'cantidad':cantidad},
+        type:"post",
+        url:'/ajax_carrito/',
+        success: function (data)
+        {
+         console.log(data)
+        }
+      });
+    
+}
+
+
+</script>
+{% endblock %}
 

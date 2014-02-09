@@ -43,14 +43,16 @@
                     <div class="col-xs-2">
                         <div class="app_font2" id="enlace_modal">
                             <span class="icon-cart app_size"></span>
-                            <span>( 0 ) Productos</span>
+                            <span>       
+                                Carrito Compras
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
 
-        <!--Barra de Navegacion - Mayra Reloca XD-->
+        <!--Barra de Navegacion -->
         <nav class="app_nav">
             <div class="container">
                 <ul class="app_ul">
@@ -92,6 +94,7 @@
         	<div id="modal_content">
 				<div id="mcontent_true">
 					<h3>Productos en tu Carrito</h3>
+
 					<table id="table_mcontent">
 						<tr>
 							<th class="table_first">N°</th>
@@ -101,140 +104,36 @@
 							<th class="table_fifth">Subtotal</th>
                             <th class="table_sixth"></th>
 						</tr>
+
+                          {% for item in cart %}
 						<tr>
 							<td class="table_first">
                                 1
                             </td>
 							<td class="table_second">
-                                <img src="{{STATIC_URL}}img/Producto1.png" alt="" width="50px" height="50px">
-                                <span class="letter_table">Lapiceros - Marca Pilot</span> 
+                                <img src="{{STATIC_URL}}{{item.product.img}}" alt="" width="50px" height="50px">
+                                <span class="letter_table">{{ item.product.nombre }}</span> 
                             </td>
 							<td class="table_third">									
 								<select>
-                                  <option value="uno">1</option>
-                                  <option value="dos">2</option>
-                                  <option value="tres">3</option>
-                                  <option value="cuatro">4</option>
+                                  <option value="uno">{{ item.quantity }}</option>
                                 </select>
 							</td>
-							<td class="table_fourth">S/. 1.50</td>
-                            <td class="table_fifth">S/. 6.00</td>
+							<td class="table_fourth">S/. {{ item.product.precio }}</td>
+                            <td class="table_fifth">S/. {{ item.total_price }}</td>
 							<td class="table_sixth">
-                                <button class="boton_delete"><img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px"></button>
+                                <button class="boton_delete item" value="{{item.product.id}}">
+                                    <img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px">
+                                </button>
                             </td>
-						</tr>
-                        <tr>
-                            <td class="table_first">
-                                1
-                            </td>
-                            <td class="table_second">
-                                <img src="{{STATIC_URL}}img/Producto1.png" alt="" width="50px" height="50px">
-                                <span class="letter_table">Lapiceros - Marca Pilot</span> 
-                            </td>
-                            <td class="table_third">                                    
-                                <select>
-                                  <option value="uno">1</option>
-                                  <option value="dos">2</option>
-                                  <option value="tres">3</option>
-                                  <option value="cuatro">4</option>
-                                </select>
-                            </td>
-                            <td class="table_fourth">S/. 1.50</td>
-                            <td class="table_fifth">S/. 6.00</td>
-                            <td class="table_sixth">
-                                <button class="boton_delete"><img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table_first">
-                                1
-                            </td>
-                            <td class="table_second">
-                                <img src="{{STATIC_URL}}img/Producto1.png" alt="" width="50px" height="50px">
-                                <span class="letter_table">Lapiceros - Marca Pilot</span> 
-                            </td>
-                            <td class="table_third">                                    
-                                <select>
-                                  <option value="uno">1</option>
-                                  <option value="dos">2</option>
-                                  <option value="tres">3</option>
-                                  <option value="cuatro">4</option>
-                                </select>
-                            </td>
-                            <td class="table_fourth">S/. 1.50</td>
-                            <td class="table_fifth">S/. 6.00</td>
-                            <td class="table_sixth">
-                                <button class="boton_delete"><img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table_first">
-                                1
-                            </td>
-                            <td class="table_second">
-                                <img src="{{STATIC_URL}}img/Producto1.png" alt="" width="50px" height="50px">
-                                <span class="letter_table">Lapiceros - Marca Pilot</span> 
-                            </td>
-                            <td class="table_third">                                    
-                                <select>
-                                  <option value="uno">1</option>
-                                  <option value="dos">2</option>
-                                  <option value="tres">3</option>
-                                  <option value="cuatro">4</option>
-                                </select>
-                            </td>
-                            <td class="table_fourth">S/. 1.50</td>
-                            <td class="table_fifth">S/. 6.00</td>
-                            <td class="table_sixth">
-                                <button class="boton_delete"><img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table_first">
-                                1
-                            </td>
-                            <td class="table_second">
-                                <img src="{{STATIC_URL}}img/Producto1.png" alt="" width="50px" height="50px">
-                                <span class="letter_table">Lapiceros - Marca Pilot</span> 
-                            </td>
-                            <td class="table_third">                                    
-                                <select>
-                                  <option value="uno">1</option>
-                                  <option value="dos">2</option>
-                                  <option value="tres">3</option>
-                                  <option value="cuatro">4</option>
-                                </select>
-                            </td>
-                            <td class="table_fourth">S/. 1.50</td>
-                            <td class="table_fifth">S/. 6.00</td>
-                            <td class="table_sixth">
-                                <button class="boton_delete"><img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table_first">
-                                1
-                            </td>
-                            <td class="table_second">
-                                <img src="{{STATIC_URL}}img/Producto1.png" alt="" width="50px" height="50px">
-                                <span class="letter_table">Lapiceros - Marca Pilot</span> 
-                            </td>
-                            <td class="table_third">                                    
-                                <select>
-                                  <option value="uno">1</option>
-                                  <option value="dos">2</option>
-                                  <option value="tres">3</option>
-                                  <option value="cuatro">4</option>
-                                </select>
-                            </td>
-                            <td class="table_fourth">S/. 1.50</td>
-                            <td class="table_fifth">S/. 6.00</td>
-                            <td class="table_sixth">
-                                <button class="boton_delete"><img src="{{STATIC_URL}}img/delete.png" alt="" width="15px" height="15px"></button>
-                            </td>
-                        </tr>
-                       
+
+						</tr>  
+                          {% endfor %}                
 					</table>
+
+                    <p>Total: <span id="total_cart">{{ cart.total_cart}}</span></p>
+                    <button>Comprar</button>
+
 				</div>
         	</div>
         </div>
@@ -251,6 +150,68 @@
 
         <script src="{{STATIC_URL}}js/main.js"></script>
 
+        <script>
+            $(document).on("ready", setup);
+            $(document).on("ready", inicio);
+
+          function setup(){
+            $.ajaxSetup({
+              beforeSend: function(xhr, settings) {
+                function getCookie(name) {
+                  var cookieValue = null;
+                    if (document.cookie && document.cookie != '') {
+                      var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                          var cookie = jQuery.trim(cookies[i]);
+                          // Does this cookie string begin with the name we want?
+                            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                            }
+                        }
+                    }
+                return cookieValue;
+                }
+                if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+              // Only send the token to relative URLs i.e. locally.
+                  xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+                }
+              }
+            });
+          }
+
+          function inicio()
+        {
+           
+             $(".item").on("click",eliminaritem);
+
+        }
+        function eliminaritem()
+        {
+            var item_id=$(this).val();
+            var $this=$(this);
+            console.log(item_id)
+            $.ajax({
+                data:{'item_id':item_id},
+                type:"post",
+                url:'/ajax_eliminaritem/',
+                success: function(data) {
+                    console.log(data);
+                    var ojo = $this.parent().parent().hide('slow');
+                    console.log(ojo);
+                },
+                error: function(data){
+                    console.log(data);
+                }
+              });
+            
+        }
+
+
+
+        </script>
+ 
+
 {% block script %}
     
 {% endblock script %}
@@ -263,6 +224,7 @@
             });
         });
         </script>
+
 
     </body>
 </html>

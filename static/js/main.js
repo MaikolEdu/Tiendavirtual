@@ -57,18 +57,25 @@ function mostrarModal(){
 }
 
 //--> Ocultar el Modal para el carrito
-$('#modal_content').on('mouseleave', {fuera:1}, fueraDentro);
-$('#modal_content').on('mouseenter', {dentro:0}, fueraDentro);
+$('#modal').click(function(){                    //por defecto ocultar al hacer click en modal
+   $(this).hide(); 
+   $('body').css({'overflow':'visible'});
+}); 
+
+$('#modal_content').on('mouseleave', {id:1}, fueraDentro);
+$('#modal_content').on('mouseup', {id:0}, fueraDentro);
 
 function fueraDentro(valor){
-   if(valor.data.fuera==1){                      //Fuera del modal
+   if(valor.data.id==1){                         //Fuera del modal
+      console.log(valor.data.id);
       $('#modal').click(function(){              //Al hacer click fuera del modal
          $(this).hide()                          //Ocultar modal
          $('body').css({'overflow':'visible'});  //Dejar visible el scroll del navegador
       });
    }
 
-   if(valor.data.dentro==0){                     //Dentro del modal
+   if(valor.data.id==0){                         //Dentro del modal
+      console.log(valor.data.id);
       $('#modal').click(function(){              //Al hacer click dentro del modal
           $(this).show();                        //Dejar mostrado el modal                 
           $('body').css({'overflow':'hidden'});  //Ocultar el scroll del navegador

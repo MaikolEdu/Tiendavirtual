@@ -111,7 +111,7 @@
                                 1
                             </td>
 							<td class="table_second">
-                                <img src="{{STATIC_URL}}{{item.product.img}}" alt="" width="50px" height="50px">
+                                <img src="{{MEDIA_URL}}{{item.product.img}}" alt="" width="50px" height="50px">
                                 <span class="letter_table">{{ item.product.nombre }}</span> 
                             </td>
 							<td class="table_third">									
@@ -197,7 +197,7 @@
                 url:'/ajax_eliminaritem/',
                 success: function(data) {
                     console.log(data);
-                    var ojo = $this.parent().parent().hide('slow');
+                    var ojo = $this.parent().parent().hide();
                     console.log(ojo);
                 },
                 error: function(data){

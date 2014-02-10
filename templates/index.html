@@ -21,18 +21,19 @@
                         </div>
 
                         <div class="col-xs-4">
-                            <div>
-                                <div class="img-thumbnail centrar">
+
+                                <div class="img-thumbnail centrar" id = "ventana-mensaje">
                                     <div class="app_margen1">
                                         <span>Recibe nuestras ofertas</span>
                                         <p class="app-correo" >Déjanos tu email!!!</p>
                                     </div>
-                                    <form class="app_margen1">
+                                    <div class="app_margen1">
                                         <input type="email" name="miemail" id="miemail" placeholder="email" class="app_input">
-                                        <input type="submit" value="Enviar" class="btn btn-primary">
-                                    </form>
+                                        <input type="text" name="nombre" id="text_nombre" placeholder="nombre" class="app_input">
+                                        <button id="suscribirse" class="btn btn-primary" > Enviar </button>
+                                    </div>
                                 </div>
-                            </div>
+
 
                         </div>
                     </div>
@@ -143,6 +144,7 @@
     
 
 
+{% block script %}
 
 
 <script>
@@ -175,43 +177,28 @@
             }
 
     function inicio(){
-        $(".sub").on('click', mostrarProductos);
-        // $(".eliminar").on('click', mostrarProductos);
+        $("#suscribirse").on('click',suscribete);
     }
 
-    function mostrarProductos(){
-        var info = $(this);
-             var id = info.attr('id');
-             console.log(id);
-             $.ajax({
-             url: "/ajax/ver_subcategoria/",
-             type: "POST",
-             data:{'id':id},
+        function suscribete(){
+            var info = $('#miemail').val();
+
+            $.ajax({
+            url: "ajax/suscribirse/",
+            type: "POST",
+            data:{'email':info},
              success: function(data) {
-                 html = "";
-                 console.log(data);
-                 for(i=0;i< data.length;i++){
-                     html += "<div class='caja' id ='"+data[i].pk+"'>";
-                     html += '<p>' + data[i].fields.nombre +'</p>';
-                     html += '<p>' + data[i].fields.precio+ '</p>';
-                     html += "<img src='{{MEDIA_URL}}"+data[i].fields.img+"'>";  
-                     html += "<div class='sub_registro'>";
-                     html += "<input type='text' class='cantidad'>";
-                     html += "<input type='submit' value='Comprar' class='btn btn-primary btn-xs compra'>";
-                     html += "</div>";
-                     html += "</div>";
-                 }
-                 
-                 $(".caja_padre").html(html);
+                //$('#ventana-mensaje').html("<div class='app_margen1'>Gracias Porsu Registro </div>");
+                 alert("Felicidades gracias por suscribirse");
                  
              },
  
              error: function(data){
-                     console.log(data);
+                     console.log("Verifica su email o usuario");
              }
            });
          }
  
          </script>
 
-</script>
+{% endblock %}

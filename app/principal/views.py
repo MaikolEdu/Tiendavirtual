@@ -72,12 +72,13 @@ def ver_detalle(request,id_producto):
 	caracteristicas =  producto.Caracteristicavalor.all()
 	return render_to_response('Descripcion.html', {'producto':producto, 'caracteristicas':caracteristicas}, context_instance=RequestContext(request))
 
+
 def ajax_registar_suscripcion(request):
 	if request.is_ajax():
 		if request.method == 'POST':
-			email = SuscripcionForm(request)
-			if email.is_valid():
-				email.save()
+			correo = SuscripcionForm(request.POST)
+			if correo.is_valid():
+				correo.save()
 				dato = True
 	else:
 		dato = False

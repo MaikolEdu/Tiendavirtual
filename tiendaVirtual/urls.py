@@ -33,6 +33,8 @@ urlpatterns = patterns('',
     url(r'^ajax/suscribirse/$','app.principal.views.ajax_registar_suscripcion'),
 
 
+
+
 )
 
 

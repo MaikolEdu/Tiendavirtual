@@ -98,7 +98,7 @@ class Ofertas(models.Model):
 
 
 class Suscripciones(models.Model):
-    email = models.EmailField(max_length=200)
+    email = models.EmailField(max_length=200, unique=True)
 
     def __unicode__(self):
         return unicode(self.email)

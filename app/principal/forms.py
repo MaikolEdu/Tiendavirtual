@@ -3,6 +3,6 @@ from app.principal.models import Suscripciones
 
 class SuscripcionForm(ModelForm):
     class Meta:
-        model= Suscripciones
+        model = Suscripciones
 
 

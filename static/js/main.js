@@ -19,6 +19,18 @@ $(window).on('scroll', function() {
 
 $(".list_hija").eq(0).show();
 
+if($('.list_hija').eq(0).height()<=184){
+  $(".list_hija").eq(0).removeClass('scrollando');
+  console.log("hata las patas");
+}
+
+else{
+  $(".list_hija").eq(0).addClass('scrollando');
+  console.log("jpder");
+}
+
+
+
 
 
 $(".mi").eq(0).on("mouseover", {id:0}, mostraricono);
@@ -86,7 +98,9 @@ function fueraDentro(valor){
 /*---------------------------------------------------------------------*/
 
 
-
+$('#miemail').click(function(){
+  $('#text_nombre').show(250);
+});
 
 
 

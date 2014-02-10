@@ -119,6 +119,29 @@ ul{
 	display: inline-block;
 }
 
+.caja_imagen{
+	position: relative;
+}
+
+.info{
+	position: absolute;
+	left: 0;
+	top:0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	color: white;
+	background: black;
+	font-size: 16px;
+	-webkit-transition:all ease .8s ;
+	-moz-transition:all ease .8s ;
+    transition:all ease .8s;
+}
+
+.caja_imagen:hover .info{
+	opacity: .3;
+}
+
 /* ------------------------------------------------------------------ */
 
 

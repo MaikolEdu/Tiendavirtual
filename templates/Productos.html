@@ -39,7 +39,10 @@
                                     <div class="app_alinear">
                                         <h5 >{{k.nombre}}</h5>
                                     </div>
-                                    <img src="{{MEDIA_URL}}{{k.img}}" class="img-responsive">
+                                    <div class="caja_imagen">
+                                        <a href="#"><img src="{{MEDIA_URL}}{{k.img}}" class="img-responsive img_producto"><span class="info">Ver</span></a>
+                                    </div>
+                                    
                                     <div class="app_alinear app_centrar">
                                         <h5>{{k.precio}} </h5>
                                         <form action="">

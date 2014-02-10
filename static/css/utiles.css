@@ -45,8 +45,11 @@ ul{
 	background-color: white;
 	display: none;
 	height: 100%;
-	/*overflow-x:hidden;
-	height:320px;*/
+}
+
+.scrollando{
+	overflow-x:hidden;
+	height:184px;
 }
 
 .list_hija li{

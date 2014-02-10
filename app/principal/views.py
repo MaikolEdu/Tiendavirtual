@@ -50,22 +50,22 @@ def inicio(request):
 	return render_to_response('index.html',{'productos':productos, 'otros':datos}, context_instance=RequestContext(request))
 
 def utiles_escolares(request):
-	productos =  Producto.objects.filter(categoriasubcategoria__categoria__id = 1).values('nombre','stock','img','precio') 
+	productos =  Producto.objects.filter(categoriasubcategoria__categoria__id = 1).values('nombre','stock','img','precio','id') 
 	return render_to_response('Productos.html',{'productos':productos}, context_instance=RequestContext(request))
 
 def utiles_oficina(request):
-	productos =  Producto.objects.filter(categoriasubcategoria__categoria__id = 2).values('nombre','stock','img','precio') 
+	productos =  Producto.objects.filter(categoriasubcategoria__categoria__id = 2).values('nombre','stock','img','precio','id') 
 	return render_to_response('Productos.html',{'productos':productos}, context_instance=RequestContext(request))
 
 def regalos(request):
-	productos =  Producto.objects.filter(categoriasubcategoria__categoria__id = 3).values('nombre','stock','img','precio') 
+	productos =  Producto.objects.filter(categoriasubcategoria__categoria__id = 3).values('nombre','stock','img','precio','id') 
 	return render_to_response('Productos.html',{'productos':productos}, context_instance=RequestContext(request))
 
 def ajax_ver_subcategorias(request):
 	if request.is_ajax():
 		if request.method=="POST":
 			productos = Producto.objects.filter(categoriasubcategoria__id = request.POST['id'])
-			data = serializers.serialize('json', productos,fields = ( 'pk','nombre','stock','precio','img'))
+			data = serializers.serialize('json', productos,fields = ( 'pk','nombre','stock','precio','img','id'))
 			return HttpResponse(data , mimetype="application/json")
 
 def ver_detalle(request,id_producto):

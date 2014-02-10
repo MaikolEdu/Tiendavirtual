@@ -219,6 +219,11 @@ ul
   font-family: 'Duru Sans', sans-serif;
 }
 
+#text_nombre{
+  display: none;
+}
+
+
 .banner { position: relative; overflow: auto; }
 .banner li { list-style: none; }
 .banner ul li { float: left;height: 300px; }
@@ -361,7 +366,7 @@ h5
 
 .app-caja
 {
-  height: 373px;
+  height: 400px;
 }
 
 
@@ -529,6 +534,10 @@ h5
 .app-orientar
 {
   float: right;
+}
+.app-margenProducto
+{
+  margin-bottom: 25px;
 }
 
 

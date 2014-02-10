@@ -34,7 +34,7 @@ def ajax_eliminaritem(request):
 
 def inicio(request):
 	productos = Producto.objects.order_by('-id')[:4]
-	productoss = Producto.objects.order_by('?')[:10]
+	productoss = Producto.objects.order_by('?')[:12]
 	data = []
 	datos = []
 	for x in productoss:
@@ -46,7 +46,7 @@ def inicio(request):
 			})
 	datos.append(data[:4])
 	datos.append(data[4:8])
-	datos.append(data[8:10])
+	datos.append(data[8:12])
 	return render_to_response('index.html',{'productos':productos, 'otros':datos}, context_instance=RequestContext(request))
 
 def utiles_escolares(request):

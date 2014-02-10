@@ -1,32 +1,33 @@
-var nav = $('#navi');
-var nav_offset = nav.offset();
 
-$(window).on('scroll', function() {
+/*------- Funcionalidades para el Nav-Aside -> Jhon Medina -------*/
 
+//--> Funcionalidad para poder mantener el Nav-aside fixed
+var nav = $('#navi');                               //Seleccionando elemento de id #navi
+var nav_offset = nav.offset();                      //Obteniendo las cordenadas, left y top del elemento
 
-    if($(window).scrollTop() > nav_offset.top) {
-      nav.addClass('navi');
-      nav.css({'top':'20px'});
+$(window).on('scroll', function() {                 //Disparando evento scroll a nuestra ventana
+
+    if($(window).scrollTop() > nav_offset.top)      //Comparando la posión del scroll con, la coordenada top
+    {                                               //... del nav_offset en pixeles, si ...
+      nav.addClass('navi');                         //Le agregamos la clase .navi al elemento de id #navi
+      nav.css({'top':'20px'});                      //Ubicamos ese mismo elemento con top de 20px
     } 
-    else{
-      nav.removeClass('navi');      
+    else{                                           //si no ...
+      nav.removeClass('navi');                      //Quitarle la clase .navi al elemento de id #navi
     }
 });
 
+//--> Mostrando por Defecto en Nav-Aside
+var selecc_defecto = $(".list_hija").eq(0);         //Seleccionando la primera .list_hija
+var tam_list = selecc_defecto.height();             //Obtener el tamaño del elemento seleccionado
 
-/*------- Funcionalidades para el Nav-Aside -> Jhon Medina -------*/
-//Aun falta optimizarlo
+selecc_defecto.show();                              //La primera .list_hija se mostrará por defecto
 
-$(".list_hija").eq(0).show();
-
-if($('.list_hija').eq(0).height()<=184){
-  $(".list_hija").eq(0).removeClass('scrollando');
-  console.log("hata las patas");
-}
-
-else{
-  $(".list_hija").eq(0).addClass('scrollando');
-  console.log("jpder");
+if(tam_list<=184){                                  //Si el tamaño de .list_hija es menor/igual que 184
+  $(".list_hija").eq(0).removeClass('scrollando');  //A esta primera .list_hija, le removemos la clase
+}                                                   //... scrollando, y no mostrara scroll para esa seccion  
+else{                                               //Si no ...
+  $(".list_hija").eq(0).addClass('scrollando');     //Le agregamos la clase scrollando
 }
 
 

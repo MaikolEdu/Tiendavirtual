@@ -21,10 +21,12 @@ $(".list_hija").eq(0).show();
 
 if($('.list_hija').eq(0).height()<=184){
   $(".list_hija").eq(0).removeClass('scrollando');
+  console.log("hata las patas");
 }
 
 else{
   $(".list_hija").eq(0).addClass('scrollando');
+  console.log("jpder");
 }
 
 

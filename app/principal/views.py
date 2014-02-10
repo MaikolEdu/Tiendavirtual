@@ -6,6 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 import json
 from cart import Cart
+from django.core.mail import EmailMessage
 
 # Carrito de compras
 
@@ -79,7 +80,16 @@ def ajax_registar_suscripcion(request):
 			correo = SuscripcionForm(request.POST)
 			if correo.is_valid():
 				correo.save()
-				dato = True
+				msg = EmailMessage(subject="Bienvenido al e-comerce", from_email="LA empresa <micky_1390@outlook.com>",
+					to=[request.POST['email']])
+				msg.template_name = "Nuevo"
+				msg.template_content = {                  
+					"contenido" :  "<h1>HOLAAAAAAAAAAAA Bienvenido a este e-comerce</h1>"
+				}
+				msg.send()
+				dato = 1
+			else:
+				dato = 2
 	else:
 		dato = False
 	return HttpResponse(dato)

@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from app.principal.models import Categoria,CategoriaSubCategoria
 
 def carrito(request):
-	print "hola"
 	return dict(cart=Cart(request))
 
 def subcategoria(request):

@@ -48,27 +48,17 @@ def inicio(request):
 	datos.append(data[8:10])
 	return render_to_response('index.html',{'productos':productos, 'otros':datos}, context_instance=RequestContext(request))
 
-
 def utiles_escolares(request):
-	categorias = Categoria.objects.all()
-	subcategorias = CategoriaSubCategoria.objects.all()
-	datos = []
-	for i in categorias:
-		subcat = subcategorias.filter(categoria__id = i.id)
-		sub = []
-		for x in subcat:
-			sub.append({
-				'nombre' : x.subcategoria.nombre,
-				'id' : x.id
-				})
-		datos.append({
-			'categoria' : i.nombre,
-			'id': i.id,
-			'sub' : sub
-			})
-	#productos =  Producto.objects.filter(categoriasubcategoria__id = subcategorias[0].id).values('nombre','stock','img','precio') 
-	return render_to_response('Productos.html',{'datos':datos}, context_instance=RequestContext(request))	
+	productos =  Producto.objects.filter(categoriasubcategoria__categoria__id = 1).values('nombre','stock','img','precio') 
+	return render_to_response('Productos.html',{'productos':productos}, context_instance=RequestContext(request))
 
+def utiles_oficina(request):
+	productos =  Producto.objects.filter(categoriasubcategoria__categoria__id = 2).values('nombre','stock','img','precio') 
+	return render_to_response('Productos.html',{'productos':productos}, context_instance=RequestContext(request))
+
+def regalos(request):
+	productos =  Producto.objects.filter(categoriasubcategoria__categoria__id = 3).values('nombre','stock','img','precio') 
+	return render_to_response('Productos.html',{'productos':productos}, context_instance=RequestContext(request))
 
 def ajax_ver_subcategorias(request):
 	if request.is_ajax():
@@ -78,9 +68,9 @@ def ajax_ver_subcategorias(request):
 			return HttpResponse(data , mimetype="application/json")
 
 def ver_detalle(request,id_producto):
-
 	producto = Producto.objects.get(id=id_producto)
-	return render_to_response('Descripcion.html', {'producto':producto}, context_instance=RequestContext(request))
+	caracteristicas =  producto.Caracteristicavalor.all()
+	return render_to_response('Descripcion.html', {'producto':producto, 'caracteristicas':caracteristicas}, context_instance=RequestContext(request))
 
 def ajax_registar_suscripcion(request):
 	if request.is_ajax():

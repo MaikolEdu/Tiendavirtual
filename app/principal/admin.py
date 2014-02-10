@@ -1,8 +1,7 @@
 from app.principal.models import *
 from django.contrib import admin
 from django import forms
-
-
+from cart.models import Cart
 
 class AdminEntries(admin.ModelAdmin):
     prepopulated_fields = { 'slug': ['nombre'] }
@@ -20,4 +19,4 @@ admin.site.register(Valor)
 admin.site.register(Caracteristica)
 admin.site.register(Ofertas)
 admin.site.register(Suscripciones)
-
+admin.site.register(Cart)

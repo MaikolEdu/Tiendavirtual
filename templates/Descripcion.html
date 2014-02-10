@@ -14,9 +14,10 @@
                             <span class="app-size2">Stock: {{producto.stock}}</span><br>
                             <span class="app-size3">s/. {{producto.precio}}</span>
                             <p class="app-size4">Descripción</p><hr>
-                            <span>Color:Rojo</span><br>
-                            <span>Tipo: Cuadriculado</span><br>
-                            <span>Contenido: 100 hojas</span>
+                            {% for detalle in caracteristicas %}
+                                <span>{{detalle.caracteristica}} : {{detalle.nombre}}</span><br>
+                            {% endfor %}
+
                         </div>
                         <div class="app-orientar">
                             {% if producto.stock > 0 %}

@@ -20,14 +20,15 @@ urlpatterns = patterns('',
     url(r'^$','app.principal.views.inicio'),
 
     url(r'^utiles_escolares/$','app.principal.views.utiles_escolares'),
-
+    url(r'^utiles_oficina/$','app.principal.views.utiles_oficina'),
+    url(r'^regalos/$','app.principal.views.regalos'),
     url(r'^ajax/ver_subcategoria/$', 'app.principal.views.ajax_ver_subcategorias'),
     url(r'^productos/(?P<id_producto>\d+)$', 'app.principal.views.ver_detalle'),
 
     #carrito
     url(r'^ajax_carrito/$', 'app.principal.views.ajax_carrito'),
     url(r'^ajax_eliminaritem/$', 'app.principal.views.ajax_eliminaritem'),
-    url(r'^vercarrito/$', 'app.principal.views.get_cart'),
+    #url(r'^vercarrito/$', 'app.principal.views.get_cart'),
 
     url(r'^ajax/suscribirse/$','app.principal.views.ajax_registar_suscripcion'),
 

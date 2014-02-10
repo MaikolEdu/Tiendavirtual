@@ -219,6 +219,11 @@ ul
   font-family: 'Duru Sans', sans-serif;
 }
 
+#text_nombre{
+  display: none;
+}
+
+
 .banner { position: relative; overflow: auto; }
 .banner li { list-style: none; }
 .banner ul li { float: left;height: 300px; }

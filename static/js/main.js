@@ -98,7 +98,9 @@ function fueraDentro(valor){
 /*---------------------------------------------------------------------*/
 
 
-
+$('#miemail').click(function(){
+  $('#text_nombre').show(250);
+});
 
 
 

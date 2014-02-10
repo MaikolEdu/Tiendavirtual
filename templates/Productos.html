@@ -13,7 +13,7 @@
                 <div class="row app_margen">
                     
                 <!--*************** Navegación Aside - Jhon M. *****************-->
-                    <div class="col-xs-3">
+                    <div class="col-xs-3 app-margenProducto">
                         <div id="navi">  
                             <ul class="list_padre">
                                 {% for i in datos %}
@@ -35,7 +35,7 @@
                     <div class="col-xs-9">
                             {% for k in productos  %}
                             <div class="col-xs-3">
-                                <div class="img-thumbnail app_padding">
+                                <div class="img-thumbnail app_padding app-margenProducto">
                                     <div class="app_alinear">
                                         <h5 >{{k.nombre}}</h5>
                                     </div>
@@ -51,7 +51,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                </div><br><br>
+                                </div>
                             </div>
                             {% endfor %}
                     </div>
@@ -132,7 +132,7 @@
                 //console.log(data);
                 for(i=0;i< data.length;i++){
                     html += "<div class='col-xs-3'id ='"+data[i].pk+"'>";
-                    html += "<div class='img-thumbnail app_padding'>";
+                    html += "<div class='img-thumbnail app_padding app-margenProducto'>";
                     html += "<div class='app_alinear'>";
                     html += "<h5 >"+data[i].fields.nombre+"</h5>";
                     html += "</div>";

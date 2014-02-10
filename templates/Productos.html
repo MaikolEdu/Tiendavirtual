@@ -100,24 +100,9 @@
     function inicio()
     {   
         $(".sub").on('click', {id:0}, mostrarProductos);
-        $(".mi").on('click', {id:1}, mostrarProductos);    //Click sobre categoria, activa funcion mostrarCategoria
-
+        $(".mi").on('click', {id:1}, mostrarProductos);    
         
     }
-
-    /*---- Funciones desplegar subcategorias de cada categoria -> Jhon Medina ----*/
-
-    /*function mostrarCategorias(){
-        var cat = $(this);                          //Seleccionando el mismo elemento de clase .mi
-        var id_cat = cat.attr('id');                //Obtener el valor de id, de clase .mi
-
-        $('.list_hija').eq(id_cat-1).toggle(500);   //Desplazando la clase .list_hija
-
-        var tam=$('.list_hija').eq(id_cat-1).height()
-        console.log(tam);
-
-    }*/
-    /*-----------------------------------------------------------------------------*/
  
     function mostrarProductos(valor){
 

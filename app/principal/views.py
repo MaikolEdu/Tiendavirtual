@@ -6,19 +6,35 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 import json
 from cart import Cart
+from django.utils import simplejson as json
 
 # Carrito de compras
 
 def ajax_carrito(request):
-	producto_id=request.POST["producto_id"]
-	cantidad = request.POST["cantidad"]	
-	product = Producto.objects.get(id=producto_id)
-	cart = Cart(request)
-	cart.add(product, product.precio, cantidad)
-	ultimo_item=dict(cart=Cart(request))
-	for item in ultimo_item:
-		print str(item.product.nombre)
-	return HttpResponse(ultimo_item)
+	if request.is_ajax():
+		producto_id=request.POST["producto_id"]
+		cantidad = request.POST["cantidad"]	
+        try :
+            product = Producto.objects.get(id=producto_id)
+            cart = Cart(request)
+            cart.add(product, product.precio, cantidad)
+            items=dict(cart=Cart(request))
+            data = []
+            datos = []
+			for x in items:
+				data.append({
+					'nombre':x.nombre
+					})
+			print data
+			datos.append(data[:1])
+
+            print datos
+            data =json.dumps({'xdxdxd':"dede"})
+            return HttpResponse(data, mimetype="application/json")
+        except :
+        	return HttpResponse("/", mimetype="application/json")
+	else:
+		raise Http404
 
 def ajax_eliminaritem(request):
 	product_id=request.POST["item_id"]

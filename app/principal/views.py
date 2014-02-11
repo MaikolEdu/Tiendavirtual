@@ -7,7 +7,7 @@ from django.core import serializers
 import json
 from cart import Cart
 from django.core.mail import EmailMessage
-
+from mailchimp import utils
 # Carrito de compras
 
 def ajax_carrito(request):
@@ -17,8 +17,6 @@ def ajax_carrito(request):
 	cart = Cart(request)
 	cart.add(product, product.precio, cantidad)
 	ultimo_item=dict(cart=Cart(request))
-	for item in ultimo_item:
-		print str(item.product.nombre)
 	return HttpResponse(ultimo_item)
 
 def ajax_eliminaritem(request):
@@ -27,10 +25,7 @@ def ajax_eliminaritem(request):
  	cart = Cart(request)
  	cart.remove(product)
  	total_carrito =cart.total_cart
- 	print total_carrito
  	return HttpResponse(total_carrito)
-
-#####
 
 def inicio(request):
 	productos = Producto.objects.order_by('-id')[:4]
@@ -87,9 +82,11 @@ def ajax_registar_suscripcion(request):
 					"contenido" :  "<h1>HOLAAAAAAAAAAAA Bienvenido a este e-comerce</h1>"
 				}
 				msg.send()
+				lista = utils.get_connection().get_list_by_id('5a8860d1e1')
+				lista.subscribe(request.POST['email'], {'EMAIL': request.POST['email'], 'FNAME': request.POST['nombre']})
 				dato = 1
 			else:
 				dato = 2
 	else:
-		dato = False
+		dato = 0
 	return HttpResponse(dato)

@@ -140,6 +140,7 @@ DJANGO_APPS= (
 LOCAL_APPS = (
     'app.principal',
     'djrill',
+    'mailchimp',
 )
 
 INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS
@@ -153,6 +154,8 @@ MANDRILL_API_KEY = "NHwSHtGUFF5bLmQ8v0yieA"
 # MANDRILL_API_KEY = get_env_variable('MANDRILL_API_KEY')
 EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
 
+# MAILCHIMP
+MAILCHIMP_API_KEY =  "b6259c73b10db5af72387cdbcb279cf9-us3"
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

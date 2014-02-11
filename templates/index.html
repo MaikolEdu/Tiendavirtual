@@ -182,11 +182,12 @@
 
         function suscribete(){
             var info = $('#miemail').val();
+            var nom = $('#text_nombre').val();
 
             $.ajax({
             url: "ajax/suscribirse/",
             type: "POST",
-            data:{'email':info},
+            data:{'email':info,'nombre':nom},
              success: function(data) {
                 //$('#ventana-mensaje').html("<div class='app_margen1'>Gracias Porsu Registro </div>");
                  alert("Felicidades gracias por suscribirse");

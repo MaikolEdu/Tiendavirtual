@@ -6,7 +6,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 import json
 from cart import Cart
-from django.utils import simplejson as json
 
 # Carrito de compras
 
@@ -18,21 +17,12 @@ def ajax_carrito(request):
             product = Producto.objects.get(id=producto_id)
             cart = Cart(request)
             cart.add(product, product.precio, cantidad)
-            items=dict(cart=Cart(request))
-            data = []
-            datos = []
-			for x in items:
-				data.append({
-					'nombre':x.nombre
-					})
-			print data
-			datos.append(data[:1])
-
-            print datos
-            data =json.dumps({'xdxdxd':"dede"})
-            return HttpResponse(data, mimetype="application/json")
+            print product.precio
+            data ={'nombre':product.nombre,'precio':str(product.precio)}
+            print data
+            return HttpResponse(data)
         except :
-        	return HttpResponse("/", mimetype="application/json")
+        	return HttpResponse("/")
 	else:
 		raise Http404
 

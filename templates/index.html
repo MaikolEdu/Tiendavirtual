@@ -29,6 +29,7 @@
                                     </div>
                                     <div class="app_margen1">
                                         <input type="email" name="miemail" id="miemail" placeholder="email" class="app_input">
+                                        <input type="text" name="nombre" id="text_nombre" placeholder="nombre" class="app_input">
                                         <button id="suscribirse" class="btn btn-primary" > Enviar </button>
                                     </div>
                                 </div>
@@ -181,11 +182,12 @@
 
         function suscribete(){
             var info = $('#miemail').val();
+            var nom = $('#text_nombre').val();
 
             $.ajax({
             url: "ajax/suscribirse/",
             type: "POST",
-            data:{'email':info},
+            data:{'email':info,'nombre':nom},
              success: function(data) {
                 //$('#ventana-mensaje').html("<div class='app_margen1'>Gracias Porsu Registro </div>");
                  alert("Felicidades gracias por suscribirse");

@@ -13,14 +13,14 @@
                 <div class="row app_margen">
                     
                 <!--*************** Navegación Aside - Jhon M. *****************-->
-                    <div class="col-xs-3">
+                    <div class="col-xs-3 app-margenProducto">
                         <div id="navi">  
                             <ul class="list_padre">
                                 {% for i in datos %}
                                 <li class="list"><p class="mi" id='{{i.id}}'>{{i.categoria}} <span class="glyphicon glyphicon-chevron-right sh"></span></p>
                                 <ul class=" list_hija">
                                     {% for j in i.sub %}
-                                        <li class = 'sub' id= '{{j.id}}'> {{j.nombre}} </li>
+                                        <li class = 'sub' id= '{{j.id}}'> {{j.nombre}}j </li>
                                         {% empty %}
                                         <li>no hay sub</li>
                                         {% endfor %}
@@ -35,11 +35,14 @@
                     <div class="col-xs-9">
                             {% for k in productos  %}
                             <div class="col-xs-3">
-                                <div class="img-thumbnail app_padding">
+                                <div class="img-thumbnail app_padding app-margenProducto">
                                     <div class="app_alinear">
                                         <h5 >{{k.nombre}}</h5>
                                     </div>
-                                    <img src="{{MEDIA_URL}}{{k.img}}" class="img-responsive">
+                                    <div class="caja_imagen">
+                                        <a href="/productos/{{k.id}}"><img src="{{MEDIA_URL}}{{k.img}}" class="img-responsive img_producto"><span class="info">Ver</span></a>
+                                    </div>
+                                    
                                     <div class="app_alinear app_centrar">
                                         <h5>{{k.precio}} </h5>
                                         <form action="">
@@ -97,24 +100,9 @@
     function inicio()
     {   
         $(".sub").on('click', {id:0}, mostrarProductos);
-        $(".mi").on('click', {id:1}, mostrarProductos);    //Click sobre categoria, activa funcion mostrarCategoria
-
+        $(".mi").on('click', {id:1}, mostrarProductos);    
         
     }
-
-    /*---- Funciones desplegar subcategorias de cada categoria -> Jhon Medina ----*/
-
-    /*function mostrarCategorias(){
-        var cat = $(this);                          //Seleccionando el mismo elemento de clase .mi
-        var id_cat = cat.attr('id');                //Obtener el valor de id, de clase .mi
-
-        $('.list_hija').eq(id_cat-1).toggle(500);   //Desplazando la clase .list_hija
-
-        var tam=$('.list_hija').eq(id_cat-1).height()
-        console.log(tam);
-
-    }*/
-    /*-----------------------------------------------------------------------------*/
  
     function mostrarProductos(valor){
 
@@ -132,11 +120,12 @@
                 //console.log(data);
                 for(i=0;i< data.length;i++){
                     html += "<div class='col-xs-3'id ='"+data[i].pk+"'>";
-                    html += "<div class='img-thumbnail app_padding'>";
+                    html += "<div class='img-thumbnail app_padding app-margenProducto'>";
                     html += "<div class='app_alinear'>";
                     html += "<h5 >"+data[i].fields.nombre+"</h5>";
                     html += "</div>";
-                    html += "<img src='{{MEDIA_URL}}"+ data[i].fields.img+"' class='img-responsive'>";
+                    html += "<div class='caja_imagen'>";
+                    html += "<a href='#'><img src='{{MEDIA_URL}}"+data[i].fields.img+"' class='img-responsive img_producto'><span class='info'>Ver</span></a></div>";
                     html += "<div class='app_alinear app_centrar'>";
                     html += "<h5>"+ data[i].fields.precio+"</h5>";
                     html += "<form action=''>";

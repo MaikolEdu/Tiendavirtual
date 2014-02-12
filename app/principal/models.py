@@ -8,7 +8,7 @@ con sus respectivo atributo
 ejemplos : utiles escolares, 
 """
 class Categoria(models.Model):
-    nombre = models.CharField(max_length = 200 )
+    nombre = models.CharField(max_length = 200 ,unique=True)
     slug =  models.SlugField(max_length = 200)
     def save(self, *args, **kwargs):
         self.slug = defaultfilters.slugify(self.nombre)
@@ -24,7 +24,7 @@ con sus respectivos atributos
 ejemplos : tamaño, color
 """
 class Caracteristica(models.Model):
-    nombre = models.CharField(max_length = 20)
+    nombre = models.CharField(max_length = 20,unique=True)
 
     def __unicode__(self):
         return unicode(self.nombre)    
@@ -36,7 +36,7 @@ con sus respectivos atributos
 ejemplos : a4, verde
 """
 class Valor(models.Model):
-    nombre = models.CharField(max_length = 20)
+    nombre = models.CharField(max_length = 20, unique=True)
     caracteristica =  models.ForeignKey(Caracteristica)
     def __unicode__(self):
         return unicode(self.caracteristica.nombre + ':' + self.nombre)
@@ -48,7 +48,7 @@ eleccion de una categoria por defecto tenemos 3
 ejemplos :  cuadernos , lapiceros, folders 
 """
 class SubCategoria(models.Model):
-    nombre =  models.CharField(max_length = 200)
+    nombre =  models.CharField(max_length = 200,unique=True)
     slug =  models.SlugField(max_length = 200)
 
     def save(self, *args, **kwargs):
@@ -73,7 +73,7 @@ con sus respectivos atributos
 ejemplos : cuaderno Loro 
 """
 class Producto(models.Model):
-    nombre = models.CharField(max_length=200)
+    nombre = models.CharField(max_length=200,unique=True)
     precio=models.DecimalField(max_digits=10, decimal_places=3)
     slug = models.SlugField(max_length=200)
     stock = models.IntegerField()   
@@ -89,7 +89,7 @@ class Producto(models.Model):
 
 
 class Ofertas(models.Model):
-    nombre = models.CharField(max_length=200)
+    nombre = models.CharField(max_length=200,unique=True)
     img = models.FileField(upload_to='imgOfertas/')
     slug = models.SlugField(max_length=200)
 
@@ -99,6 +99,6 @@ class Ofertas(models.Model):
 
 class Suscripciones(models.Model):
     email = models.EmailField(max_length=200, unique=True)
-
+    nombre =  models.CharField(max_length=30)
     def __unicode__(self):
         return unicode(self.email)

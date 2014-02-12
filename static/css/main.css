@@ -161,19 +161,11 @@ ul
 {
     display: inline-block;
     list-style-type: none;
-    margin: 10px 40px;
+    margin: 10px 53px;
     height: 30px;
     cursor: pointer;
     text-decoration: none;
     text-align: center;
-}
-.app_ul li .linea_nav{
-
-    background-color: white;
-    /*background: #cccccc;*/
-    width: 97%;
-    margin: 0 auto 15px;
-    height: 6px;
 }
 
 .app_ul li a{
@@ -181,7 +173,7 @@ ul
     font-weight: 500;
     cursor: pointer;
     color: white;
-    /*color: #cccccc;*/
+    line-height: 30px;
     font-family: 'Duru Sans', sans-serif;
     text-decoration: none;
 }
@@ -196,6 +188,7 @@ ul
 {
     padding-top: 27px;
     padding-bottom: 27px;
+    border-radius: 3px;
 }
 .app_margen1
 {

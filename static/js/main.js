@@ -23,7 +23,7 @@ var tam_list = selecc_defecto.height();             //Obtener el tamaño del ele
 
 selecc_defecto.show();                              //La primera .list_hija se mostrará por defecto
 
-if(tam_list<=184){                                  //Si el tamaño de .list_hija es menor/igual que 184
+if(tam_list>=184){                                  //Si el tamaño de .list_hija es menor/igual que 184
   $(".list_hija").eq(0).removeClass('scrollando');  //A esta primera .list_hija, le removemos la clase
 }                                                   //... scrollando, y no mostrara scroll para esa seccion  
 else{                                               //Si no ...

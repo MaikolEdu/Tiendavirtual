@@ -61,10 +61,6 @@ textarea {
    ========================================================================== */
 
 /*-------Uso General--------*/
-.color
-{
-  background: blue;
-}
 .app-precio
 {
   float: left;
@@ -106,10 +102,12 @@ textarea {
 /*------Header------*/
 .app_title
 {
-    margin: 5px;
-    font-size: 50px; 
-    font-family: 'Tangerine', serif;
-    text-shadow: 4px 4px 4px #aaa;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Duru Sans', sans-serif;
+    display: inline-block;
+    vertical-align: middle;
 }
 .app_header
 {
@@ -141,9 +139,17 @@ a:link
 {
   text-decoration: none;
 }
-.app_link
+.twitter
 {
-  color: black;
+  color: #33B5E5;
+}
+.facebook
+{
+  color: #3B5998;
+}
+.google
+{
+  color: #E74C3C;
 }
 
 /*------------------*/
@@ -333,6 +339,19 @@ h5
 
 .espaciado{
   border-right: 1px solid #D8D2D2;
+}
+
+.app-icon1
+{
+  color: #E74C3C;
+}
+.app-icon2
+{
+  color: #99cc00;
+}
+.app-icon3
+{
+  color: #33B5E5;
 }
 
 /*-------------------------*/

@@ -69,27 +69,37 @@ textarea {
 {
   float: left;
   padding-left:  5px;
-  font-size: 18px;
+  color: #27ae60;
+  font-size: 25px;
 }
 .app-detalle
 {
   float: right;
   padding-right: 5px;
-  font-size: 14px;
-  margin-top: 2px;
+  font-size: 16px;
+  padding-top: 9px;
+ 
 }
-.detalle
-{
-  margin-top: 5px;
-}
+
 .nombre
 {
   padding-bottom: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #838383;
+  letter-spacing: 1px;
+}
+
+.nombre:hover{
+  color: #555;
 }
 .app_margen
 {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+.espaciado:nth-child(4n){
+    border:none;
 }
 /*-------------------------*/
 
@@ -304,6 +314,11 @@ h5
     padding-right: 20px;
 }
 /*------------------*/
+/*Padding seccion mas vendidos */
+.detalle{
+  margin-top: 8px;
+}
+/*------------------*/
 
 /*-----section envios------*/
 .app_envios
@@ -314,6 +329,10 @@ h5
 {
     font-size: 45px;
     margin-top: 30px;
+}
+
+.espaciado{
+  border-right: 1px solid #D8D2D2;
 }
 
 /*-------------------------*/

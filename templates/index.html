@@ -50,9 +50,9 @@
                                     <span>{{i.nombre}}</span>
                                 </div>
                                 <img src="{{MEDIA_URL}}{{i.img}}" class="img-responsive">
-                                <div class="app_alinear color3">
+                                <div class="app_alinear detalle">
                                     <span class="app-precio"><span>S/. </span>{{i.precio}} </span>
-                                    <span class="app-detalle"><a href="/productos/{{i.id}}">ver detalle </a></span>
+                                    <span class="app-detalle"><a href="/productos/{{i.id}}">Ver detalle <span class="icon-arrow-right"></span></a></span>
                                 </div>
                             </div>
                         </div>                       
@@ -117,15 +117,15 @@
                 {% for x in otros %}
                     <div class="row app_margen">
                     {% for y in x  %}
-                        <div class="col-xs-3">
-                            <div class="img-thumbnail app_padding">
+                        <div class="col-xs-3 espaciado">
+                            <div class="img-responsive app_padding">
                                 <div class="app_alinear nombre">
                                      <span>{{y.nombre}}</span>
                                 </div>
                                 <img src="{{MEDIA_URL}}{{y.img}}" class="img-responsive">
                                 <div class="app_alinear detalle">
                                     <span class="app-precio"><span>S/. </span>{{y.precio}}</span>
-                                    <span class="app-detalle"><a href="/productos/{{y.id}}">ver detalle </a></span>
+                                    <span class="app-detalle"><a href="/productos/{{y.id}}">Ver detalle <span class="icon-arrow-right"></span></a></span>
                                 </div>
                             </div>
                         </div>

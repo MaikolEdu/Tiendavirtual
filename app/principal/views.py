@@ -11,13 +11,22 @@ from mailchimp import utils
 # Carrito de compras
 
 def ajax_carrito(request):
-	producto_id=request.POST["producto_id"]
-	cantidad = request.POST["cantidad"]	
-	product = Producto.objects.get(id=producto_id)
-	cart = Cart(request)
-	cart.add(product, product.precio, cantidad)
-	ultimo_item=dict(cart=Cart(request))
-	return HttpResponse(ultimo_item)
+
+	if request.is_ajax():
+		producto_id=request.POST["producto_id"]
+		cantidad = request.POST["cantidad"]	
+        try :
+            product = Producto.objects.get(id=producto_id)
+            cart = Cart(request)
+            cart.add(product, product.precio, cantidad)
+            print product.precio
+            data ={'nombre':product.nombre,'precio':str(product.precio)}
+            print data
+            return HttpResponse(data)
+        except :
+        	return HttpResponse("/")
+	else:
+		raise Http404
 
 def ajax_eliminaritem(request):
 	product_id=request.POST["item_id"]

@@ -76,11 +76,12 @@ textarea {
   padding-top: 9px;
  
 }
-
+/*Titulo de producto , precio y detalle */
 .nombre
 {
-  padding-bottom: 5px;
-  font-size: 12px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  font-size: 15px;
   font-weight: 700;
   color: #838383;
   letter-spacing: 1px;
@@ -89,6 +90,7 @@ textarea {
 .nombre:hover{
   color: #555;
 }
+
 .app_margen
 {
     margin-top: 20px;
